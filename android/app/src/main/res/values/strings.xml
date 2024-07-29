@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">official-app</string>
+    <string name="title_activity_main">official-app</string>
+    <string name="package_name">jp.kinensai.app136</string>
+    <string name="custom_url_scheme">jp.kinensai.app136</string>
+</resources>
