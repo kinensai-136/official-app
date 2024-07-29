@@ -1,9 +1,9 @@
-import type { CapacitorConfig } from '@capacitor/cli';
+import type { CapacitorConfig } from "@capacitor/cli"
 
 const config: CapacitorConfig = {
-  appId: 'jp.kinensai.app136',
-  appName: 'official-app',
-  webDir: 'build/client'
-};
+  appId: "jp.kinensai.app136",
+  appName: "official-app",
+  webDir: "build/client",
+}
 
-export default config;
+export default config
