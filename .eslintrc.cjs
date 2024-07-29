@@ -24,6 +24,27 @@ module.exports = {
   // Base config
   extends: ["eslint:recommended", "prettier"],
 
+  plugins: ["simple-import-sort"],
+
+  rules: {
+    "simple-import-sort/imports": [
+      "error",
+      {
+        groups: [["^react"], ["^@?\\w"], ["~/(.*)"], ["^[./]"]],
+      },
+    ],
+    "simple-import-sort/exports": "error",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+    "no-restricted-imports": [
+      "error",
+      {
+        patterns: ["./", "../"],
+      },
+    ],
+  },
+
   overrides: [
     // React
     {
