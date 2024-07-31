@@ -8,6 +8,8 @@ import {
 
 import "~/tailwind.css"
 
+import "@fontsource-variable/noto-sans-jp"
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
