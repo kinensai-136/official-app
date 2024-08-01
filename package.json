@@ -15,8 +15,11 @@
     "@capacitor/android": "^6.1.1",
     "@capacitor/core": "^6.1.1",
     "@capacitor/ios": "^6.1.1",
+    "@fontsource-variable/noto-sans-jp": "^5.0.19",
+    "@heroicons/react": "^2.1.5",
     "@remix-run/node": "^2.10.3",
     "@remix-run/react": "^2.10.3",
+    "clsx": "^2.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
