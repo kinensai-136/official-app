@@ -7,6 +7,7 @@ import {
 } from "@remix-run/react"
 
 import "~/tailwind.css"
+import { NavBar } from "~/components/layout/navigation/nav-bar"
 
 import "@fontsource-variable/noto-sans-jp"
 
@@ -22,7 +23,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-dark-100">
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -32,7 +33,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />
+  return (
+    <>
+      <Outlet />
+      <footer className="fixed inset-x-0 bottom-0 mx-auto">
+        <NavBar />
+      </footer>
+    </>
+  )
 }
 
 export function HydrateFallback() {
