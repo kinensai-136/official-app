@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react"
+
 import {
   Links,
   Meta,
@@ -33,10 +35,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const navBarRef = useRef<HTMLDivElement>(null)
+  const [navBarHeight, setNavBarHeight] = useState(0)
+  useEffect(() => {
+    setNavBarHeight(navBarRef.current?.getBoundingClientRect().height ?? 0)
+  }, [])
   return (
     <>
       <Outlet />
-      <footer className="sticky inset-x-0 bottom-0 mx-auto mt-5">
+      <div style={{ height: navBarHeight + 24 }} />
+      <footer ref={navBarRef} className="fixed inset-x-0 bottom-0 z-20 mx-auto">
         <NavBar />
       </footer>
     </>
