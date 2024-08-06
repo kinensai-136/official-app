@@ -5,3 +5,5 @@ export const newtClient = createClient({
   token: import.meta.env.VITE_NEWT_TOKEN,
   apiType: "cdn",
 })
+
+export const NEWT_APP_UID = "official-app"
