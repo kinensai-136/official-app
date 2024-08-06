@@ -22,6 +22,7 @@
     "@uidotdev/usehooks": "^2.4.1",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.12",
+    "newt-client-js": "^3.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
