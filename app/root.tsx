@@ -10,8 +10,18 @@ import {
 
 import "~/tailwind.css"
 import { NavBar } from "~/components/layout/nav-bar/nav-bar"
+import {
+  refreshPrograms,
+  refreshProgramTags,
+} from "~/services/program/program-service"
 
 import "@fontsource-variable/noto-sans-jp"
+
+export async function clientLoader() {
+  await refreshPrograms()
+  await refreshProgramTags()
+  return null
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
