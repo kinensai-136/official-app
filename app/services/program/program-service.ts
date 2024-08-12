@@ -1,3 +1,6 @@
+import dayjs from "dayjs"
+import customParseFormat from "dayjs/plugin/customParseFormat"
+
 import { NEWT_APP_UID, newtClient } from "~/libs/newt/newt-client"
 import {
   NewtApplicantProgram,
@@ -48,6 +51,7 @@ export function getProgramTags(categories: ProgramCategory[]) {
 }
 
 export async function refreshPrograms() {
+  dayjs.extend(customParseFormat)
   const rawApplicantPrograms =
     await newtClient.getContents<NewtApplicantProgram>({
       appUid: NEWT_APP_UID,
@@ -77,12 +81,28 @@ export async function refreshPrograms() {
       location: raw.location,
       tags: raw.tags,
       timeTable1st: raw.timeTable1st.map(({ startTime, endTime }) => ({
-        startTime: new Date(startTime),
-        endTime: new Date(endTime),
+        startTime: dayjs(startTime, "HH:mm")
+          .year(2024)
+          .month(9 - 1)
+          .date(28)
+          .toDate(),
+        endTime: dayjs(endTime, "HH:mm")
+          .year(2024)
+          .month(9 - 1)
+          .date(28)
+          .toDate(),
       })),
       timeTable2nd: raw.timeTable2nd.map(({ startTime, endTime }) => ({
-        startTime: new Date(startTime),
-        endTime: new Date(endTime),
+        startTime: dayjs(startTime, "HH:mm")
+          .year(2024)
+          .month(9 - 1)
+          .date(29)
+          .toDate(),
+        endTime: dayjs(endTime, "HH:mm")
+          .year(2024)
+          .month(9 - 1)
+          .date(29)
+          .toDate(),
       })),
     })
   )
@@ -96,12 +116,28 @@ export async function refreshPrograms() {
       location: "講堂",
       tags: raw.tags,
       schedule1st: raw.schedule1st.map(({ startTime, endTime }) => ({
-        startTime: new Date(startTime),
-        endTime: new Date(endTime),
+        startTime: dayjs(startTime, "HH:mm")
+          .year(2024)
+          .month(9 - 1)
+          .date(28)
+          .toDate(),
+        endTime: dayjs(endTime, "HH:mm")
+          .year(2024)
+          .month(9 - 1)
+          .date(28)
+          .toDate(),
       })),
       schedule2nd: raw.schedule2nd.map(({ startTime, endTime }) => ({
-        startTime: new Date(startTime),
-        endTime: new Date(endTime),
+        startTime: dayjs(startTime, "HH:mm")
+          .year(2024)
+          .month(9 - 1)
+          .date(29)
+          .toDate(),
+        endTime: dayjs(endTime, "HH:mm")
+          .year(2024)
+          .month(9 - 1)
+          .date(29)
+          .toDate(),
       })),
     })
   )
@@ -115,12 +151,28 @@ export async function refreshPrograms() {
       location: raw.location,
       tags: raw.tags,
       timeTable1st: raw.timeTable1st.map(({ startTime, endTime }) => ({
-        startTime: new Date(startTime),
-        endTime: new Date(endTime),
+        startTime: dayjs(startTime, "HH:mm")
+          .year(2024)
+          .month(9 - 1)
+          .date(28)
+          .toDate(),
+        endTime: dayjs(endTime, "HH:mm")
+          .year(2024)
+          .month(9 - 1)
+          .date(28)
+          .toDate(),
       })),
       timeTable2nd: raw.timeTable2nd.map(({ startTime, endTime }) => ({
-        startTime: new Date(startTime),
-        endTime: new Date(endTime),
+        startTime: dayjs(startTime, "HH:mm")
+          .year(2024)
+          .month(9 - 1)
+          .date(29)
+          .toDate(),
+        endTime: dayjs(endTime, "HH:mm")
+          .year(2024)
+          .month(9 - 1)
+          .date(29)
+          .toDate(),
       })),
     })
   )
@@ -133,12 +185,28 @@ export async function refreshPrograms() {
     location: "ステージ",
     tags: raw.tags,
     schedule1st: raw.schedule1st.map(({ startTime, endTime }) => ({
-      startTime: new Date(startTime),
-      endTime: new Date(endTime),
+      startTime: dayjs(startTime, "HH:mm")
+        .year(2024)
+        .month(9 - 1)
+        .date(28)
+        .toDate(),
+      endTime: dayjs(endTime, "HH:mm")
+        .year(2024)
+        .month(9 - 1)
+        .date(28)
+        .toDate(),
     })),
     schedule2nd: raw.schedule2nd.map(({ startTime, endTime }) => ({
-      startTime: new Date(startTime),
-      endTime: new Date(endTime),
+      startTime: dayjs(startTime, "HH:mm")
+        .year(2024)
+        .month(9 - 1)
+        .date(29)
+        .toDate(),
+      endTime: dayjs(endTime, "HH:mm")
+        .year(2024)
+        .month(9 - 1)
+        .date(29)
+        .toDate(),
     })),
   }))
   cachedPrograms["applicant"] = applicantPrograms
