@@ -10,6 +10,7 @@ import {
 
 import "~/tailwind.css"
 import { NavBar } from "~/components/layout/nav-bar/nav-bar"
+import { initializeFirebase } from "~/libs/firebase/firebase-app"
 import {
   refreshPrograms,
   refreshProgramTags,
@@ -18,6 +19,7 @@ import {
 import "@fontsource-variable/noto-sans-jp"
 
 export async function clientLoader() {
+  await initializeFirebase()
   await refreshPrograms()
   await refreshProgramTags()
   return null
