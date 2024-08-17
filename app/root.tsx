@@ -11,17 +11,13 @@ import {
 import "~/tailwind.css"
 import { NavBar } from "~/components/layout/nav-bar/nav-bar"
 import { initializeFirebase } from "~/libs/firebase/firebase-app"
-import {
-  refreshPrograms,
-  refreshProgramTags,
-} from "~/services/program/program-service"
+import { ProgramProvider } from "~/services/program/program-hook"
+import { MergedProvider } from "~/utils/merged-provider"
 
 import "@fontsource-variable/noto-sans-jp"
 
 export async function clientLoader() {
   await initializeFirebase()
-  await refreshPrograms()
-  await refreshProgramTags()
   return null
 }
 
@@ -53,13 +49,13 @@ export default function App() {
     setNavBarHeight(navBarRef.current?.getBoundingClientRect().height ?? 0)
   }, [])
   return (
-    <>
+    <MergedProvider providers={[ProgramProvider]}>
       <Outlet />
       <div style={{ height: navBarHeight + 24 }} />
       <footer ref={navBarRef} className="fixed inset-x-0 bottom-0 z-20 mx-auto">
         <NavBar />
       </footer>
-    </>
+    </MergedProvider>
   )
 }
 
