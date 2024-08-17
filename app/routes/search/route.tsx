@@ -8,7 +8,8 @@ import { TagsSelect } from "~/routes/search/tags-select"
 import { useSearch } from "~/routes/search/use-search"
 
 export default function Page() {
-  const { setText, setCategories, setTags, validTags, programs } = useSearch()
+  const { setText, setCategories, setTags, validTags, searchedPrograms } =
+    useSearch()
   return (
     <>
       <header className="sticky top-0 z-30">
@@ -25,8 +26,8 @@ export default function Page() {
       </header>
       <main className="space-y-5 px-5 pt-2">
         <div className="w-full space-y-3">
-          {programs.length > 0 ? (
-            programs.map((program) => (
+          {searchedPrograms.length > 0 ? (
+            searchedPrograms.map((program) => (
               <ProgramCard key={program._id} program={program} />
             ))
           ) : (

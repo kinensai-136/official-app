@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react"
 
 import { Program, ProgramCategory } from "~/services/program/program.type"
-import { getPrograms, getProgramTags } from "~/services/program/program-service"
+import { useProgram } from "~/services/program/program-hook"
 
 type Props = {
   text: string
@@ -11,10 +11,11 @@ type Props = {
   tags: string[]
   setTags: Dispatch<SetStateAction<Props["tags"]>>
   validTags: string[]
-  programs: Program[]
+  searchedPrograms: Program[]
 }
 
 export function useSearch(): Props {
+  const { programs, programTags } = useProgram()
   const [text, setText] = useState<Props["text"]>("")
   const [categories, setCategories] = useState<Props["categories"]>([
     "applicant",
@@ -24,11 +25,31 @@ export function useSearch(): Props {
   ])
   const [tags, setTags] = useState<Props["tags"]>([])
   const [validTags, setValidTags] = useState<Props["validTags"]>([])
-  const [programs, setPrograms] = useState<Props["programs"]>([])
+  const [searchedPrograms, setSearchedPrograms] = useState<
+    Props["searchedPrograms"]
+  >([])
   useEffect(() => {
-    setPrograms(search(text, categories, tags))
-    setValidTags(getProgramTags(categories))
-  }, [text, categories, tags])
+    setSearchedPrograms(
+      search(
+        Object.entries(programs)
+          .filter(([category]) =>
+            categories.includes(category as ProgramCategory)
+          )
+          .flatMap(([, programs]) => programs),
+        text,
+        tags
+      )
+    )
+    setValidTags([
+      ...new Set(
+        Object.entries(programTags)
+          .filter(([category]) =>
+            categories.includes(category as ProgramCategory)
+          )
+          .flatMap(([, tags]) => tags)
+      ),
+    ])
+  }, [programs, programTags, text, categories, tags])
   return {
     text,
     setText,
@@ -37,13 +58,12 @@ export function useSearch(): Props {
     tags,
     setTags,
     validTags,
-    programs,
+    searchedPrograms,
   }
 }
 
-function search(text: string, categories: ProgramCategory[], tags: string[]) {
-  const programs = getPrograms(categories)
-  const detectedPrograms: Program[] = []
+function search(programs: Program[], text: string, tags: string[]) {
+  const searchedPrograms: Program[] = []
   for (const program of programs) {
     if (
       (!text ||
@@ -52,8 +72,8 @@ function search(text: string, categories: ProgramCategory[], tags: string[]) {
       (!tags.length ||
         program.tags.find((tag) => tags.includes(tag)) !== undefined)
     ) {
-      detectedPrograms.push(program)
+      searchedPrograms.push(program)
     }
   }
-  return detectedPrograms
+  return searchedPrograms
 }
