@@ -11,6 +11,8 @@ import {
 import "~/tailwind.css"
 import { NavBar } from "~/components/layout/nav-bar/nav-bar"
 import { initializeFirebase } from "~/libs/firebase/firebase-app"
+import { AuthProvider } from "~/services/auth/auth-hook"
+import { FavoriteProvider } from "~/services/favorite/favorite-hook"
 import { ProgramProvider } from "~/services/program/program-hook"
 import { MergedProvider } from "~/utils/merged-provider"
 
@@ -49,7 +51,9 @@ export default function App() {
     setNavBarHeight(navBarRef.current?.getBoundingClientRect().height ?? 0)
   }, [])
   return (
-    <MergedProvider providers={[ProgramProvider]}>
+    <MergedProvider
+      providers={[AuthProvider, ProgramProvider, FavoriteProvider]}
+    >
       <Outlet />
       <div style={{ height: navBarHeight + 24 }} />
       <footer ref={navBarRef} className="fixed inset-x-0 bottom-0 z-20 mx-auto">

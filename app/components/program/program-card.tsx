@@ -1,3 +1,4 @@
+import { FavoriteButton } from "~/components/program/favorite-button"
 import { ProgramDrawer } from "~/components/program/program-drawer"
 import { Program, ProgramCategory } from "~/services/program/program.type"
 
@@ -14,16 +15,21 @@ type Props = {
 
 export function ProgramCard({ program }: Props) {
   return (
-    <ProgramDrawer program={program}>
-      <div className="flex items-end justify-between gap-2 rounded bg-dark-200 px-5 py-4">
-        <div className="flex-1 space-y-2 overflow-hidden">
-          <div>
+    <div className="space-y-2 rounded bg-dark-200 px-5 pb-1 pt-4">
+      <div className="flex gap-3">
+        <ProgramDrawer program={program}>
+          <div className="flex-1 overflow-hidden">
             <p className="text-sm text-dark-600">{program.organizer}</p>
             <h1 className="truncate text-lg font-semibold text-white">
               {program.title}
             </h1>
           </div>
-          <ul className="flex flex-wrap gap-1 [scrollbar-width:none]">
+        </ProgramDrawer>
+        <FavoriteButton program={program} size="small" />
+      </div>
+      <ProgramDrawer program={program}>
+        <div className="flex justify-between gap-3">
+          <ul className="flex gap-1 overflow-scroll pb-3">
             {...program.tags.map((tag) => (
               <li
                 key={tag}
@@ -33,11 +39,11 @@ export function ProgramCard({ program }: Props) {
               </li>
             ))}
           </ul>
+          <p className="whitespace-nowrap text-sm text-dark-500">
+            {categoriesMap[program.category]}
+          </p>
         </div>
-        <p className="text-sm text-dark-500">
-          {categoriesMap[program.category]}
-        </p>
-      </div>
-    </ProgramDrawer>
+      </ProgramDrawer>
+    </div>
   )
 }
