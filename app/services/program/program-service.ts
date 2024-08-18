@@ -18,39 +18,9 @@ import {
   StageProgram,
 } from "~/services/program/program.type"
 
-const cachedPrograms: Record<ProgramCategory, Program[]> = {
-  applicant: [],
-  auditorium: [],
-  classroom: [],
-  stage: [],
-}
-
-const cachedProgramTags: Record<ProgramCategory, string[]> = {
-  applicant: [],
-  auditorium: [],
-  classroom: [],
-  stage: [],
-}
-
-export function getPrograms(categories: ProgramCategory[]) {
-  const programs = []
-  for (const category of categories) {
-    programs.push(...cachedPrograms[category])
-  }
-  return programs
-}
-
-export function getProgramTags(categories: ProgramCategory[]) {
-  const programTags = []
-  for (const category of categories) {
-    programTags.push(
-      ...new Set(cachedPrograms[category].flatMap((program) => program.tags))
-    )
-  }
-  return programTags
-}
-
-export async function refreshPrograms() {
+export async function fetchPrograms(): Promise<
+  Record<ProgramCategory, Program[]>
+> {
   dayjs.extend(customParseFormat)
   const rawApplicantPrograms =
     await newtClient.getContents<NewtApplicantProgram>({
@@ -209,23 +179,10 @@ export async function refreshPrograms() {
         .toDate(),
     })),
   }))
-  cachedPrograms["applicant"] = applicantPrograms
-  cachedPrograms["auditorium"] = auditoriumPrograms
-  cachedPrograms["classroom"] = classroomPrograms
-  cachedPrograms["stage"] = stagePrograms
-}
-
-export async function refreshProgramTags() {
-  cachedProgramTags["applicant"] = [
-    ...new Set(cachedPrograms["applicant"].flatMap((program) => program.tags)),
-  ]
-  cachedProgramTags["auditorium"] = [
-    ...new Set(cachedPrograms["auditorium"].flatMap((program) => program.tags)),
-  ]
-  cachedProgramTags["classroom"] = [
-    ...new Set(cachedPrograms["classroom"].flatMap((program) => program.tags)),
-  ]
-  cachedProgramTags["stage"] = [
-    ...new Set(cachedPrograms["stage"].flatMap((program) => program.tags)),
-  ]
+  return {
+    applicant: applicantPrograms,
+    auditorium: auditoriumPrograms,
+    classroom: classroomPrograms,
+    stage: stagePrograms,
+  }
 }
