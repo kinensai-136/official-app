@@ -13,6 +13,7 @@ import { NavBar } from "~/components/layout/nav-bar/nav-bar"
 import { initializeFirebase } from "~/libs/firebase/firebase-app"
 import { AuthProvider } from "~/services/auth/auth-hook"
 import { FavoriteProvider } from "~/services/favorite/favorite-hook"
+import { NoticeProvider } from "~/services/notice/notice-hook"
 import { ProgramProvider } from "~/services/program/program-hook"
 import { MergedProvider } from "~/utils/merged-provider"
 
@@ -52,7 +53,12 @@ export default function App() {
   }, [])
   return (
     <MergedProvider
-      providers={[AuthProvider, ProgramProvider, FavoriteProvider]}
+      providers={[
+        AuthProvider,
+        ProgramProvider,
+        FavoriteProvider,
+        NoticeProvider,
+      ]}
     >
       <Outlet />
       <div style={{ height: navBarHeight + 24 }} />
