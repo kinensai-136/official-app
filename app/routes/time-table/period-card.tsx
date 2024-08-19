@@ -15,11 +15,8 @@ type Props = {
 
 export function PeriodCard({ startTime, endTime, program }: Props) {
   dayjs.extend(isBetween)
-  const isEnded = dayjs(new Date(2024, 9 - 1, 28, 15, 1)).isAfter(endTime)
-  const isNow = dayjs(new Date(2024, 9 - 1, 28, 15, 1)).isBetween(
-    startTime,
-    endTime
-  )
+  const isEnded = dayjs().isAfter(endTime)
+  const isNow = dayjs().isBetween(startTime, endTime)
   const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
     if (isNow && ref.current) {
