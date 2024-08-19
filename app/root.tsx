@@ -16,6 +16,7 @@ import { FavoriteProvider } from "~/services/favorite/favorite-hook"
 import { NoticeProvider } from "~/services/notice/notice-hook"
 import { ProgramProvider } from "~/services/program/program-hook"
 import { RecommendProvider } from "~/services/recommend/recommend-hook"
+import { VoteProvider } from "~/services/vote/vote-hook"
 import { MergedProvider } from "~/utils/merged-provider"
 
 import "@fontsource-variable/noto-sans-jp"
@@ -60,6 +61,7 @@ export default function App() {
         FavoriteProvider,
         NoticeProvider,
         RecommendProvider,
+        VoteProvider,
       ]}
     >
       <Outlet />
