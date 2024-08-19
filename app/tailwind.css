@@ -4,4 +4,6 @@
 
 body {
   font-family: "Noto Sans JP Variable", sans-serif;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
 }

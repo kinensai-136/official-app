@@ -4,7 +4,7 @@ import { Link } from "@remix-run/react"
 export function SearchButton() {
   return (
     <Link
-      to="/search"
+      to="/home/search"
       className="flex items-center gap-4 rounded-full border border-dark-300 bg-white/5 p-1 text-dark-600"
     >
       <MagnifyingGlassIcon className="ml-5 size-6 shrink-0" />
