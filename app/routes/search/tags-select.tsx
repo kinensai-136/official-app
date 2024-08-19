@@ -10,22 +10,24 @@ type Props = {
 
 export function TagsSelect({ validTags, onSelect }: Props) {
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set())
-  const sortedTags = [
-    ...selectedTags,
-    ...validTags.filter((tag) => !selectedTags.has(tag)),
-  ]
   const [isExpanded, toggleExpanded] = useToggle(false)
+  const showTags = isExpanded
+    ? validTags
+    : [
+        ...selectedTags,
+        ...validTags.filter((tag) => !selectedTags.has(tag)),
+      ].slice(0, Math.max(4, selectedTags.size))
   return (
     <div>
       <ul className="flex flex-wrap gap-x-1 gap-y-1.5">
-        {sortedTags.splice(0, isExpanded ? 1000 : 4).map((tag) => (
+        {showTags.map((tag) => (
           <li key={tag}>
             <button
               type="button"
               className={clsx(
                 "whitespace-nowrap rounded-full px-3 py-0.5",
                 selectedTags.has(tag)
-                  ? "bg-primary-200 font-medium text-white"
+                  ? "bg-primary-100 font-medium text-white"
                   : "bg-dark-200 text-dark-400"
               )}
               onClick={() => {
@@ -42,14 +44,14 @@ export function TagsSelect({ validTags, onSelect }: Props) {
             </button>
           </li>
         ))}
-        {!isExpanded && (
+        {validTags.length > 4 && !isExpanded && (
           <li>
             <button
               type="button"
               className="whitespace-nowrap rounded-full bg-dark-300 px-3 py-0.5 text-dark-600"
               onClick={() => toggleExpanded()}
             >
-              ... {validTags.length > 4 ? validTags.length - 4 : 0}
+              ... {validTags.length - 4}
               つのタグを表示
             </button>
           </li>
