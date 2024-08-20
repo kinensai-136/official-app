@@ -8,6 +8,12 @@ type CommonProps = {
   tags: string[]
 }
 
+export type Period = {
+  _id: string
+  startTime: Date
+  endTime: Date
+}
+
 export type ProgramCategory = "applicant" | "auditorium" | "classroom" | "stage"
 
 export type Program =
@@ -18,50 +24,26 @@ export type Program =
 
 export type ApplicantProgram = CommonProps & {
   category: "applicant"
-  timeTable1st: {
-    startTime: Date
-    endTime: Date
-  }[]
-  timeTable2nd: {
-    startTime: Date
-    endTime: Date
-  }[]
+  timeTable1st: Period[]
+  timeTable2nd: Period[]
 }
 
 export type AuditoriumProgram = CommonProps & {
   category: "auditorium"
   location: "講堂"
-  schedule1st: {
-    startTime: Date
-    endTime: Date
-  }[]
-  schedule2nd: {
-    startTime: Date
-    endTime: Date
-  }[]
+  schedule1st: Period[]
+  schedule2nd: Period[]
 }
 
 export type ClassroomProgram = CommonProps & {
   category: "classroom"
-  timeTable1st: {
-    startTime: Date
-    endTime: Date
-  }[]
-  timeTable2nd: {
-    startTime: Date
-    endTime: Date
-  }[]
+  timeTable1st: Period[]
+  timeTable2nd: Period[]
 }
 
 export type StageProgram = CommonProps & {
   category: "stage"
   location: "ステージ"
-  schedule1st: {
-    startTime: Date
-    endTime: Date
-  }[]
-  schedule2nd: {
-    startTime: Date
-    endTime: Date
-  }[]
+  schedule1st: Period[]
+  schedule2nd: Period[]
 }

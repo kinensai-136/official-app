@@ -3,17 +3,12 @@ import clsx from "clsx"
 import dayjs from "dayjs"
 import isBetween from "dayjs/plugin/isBetween"
 
+import { Period } from "~/services/program/program.type"
 import { whatTimeIsIt } from "~/utils/what-time-is-it"
 
 type Props = {
-  timeTable1st: {
-    startTime: Date
-    endTime: Date
-  }[]
-  timeTable2nd: {
-    startTime: Date
-    endTime: Date
-  }[]
+  timeTable1st: Period[]
+  timeTable2nd: Period[]
 }
 
 export function TimeTable({ timeTable1st, timeTable2nd }: Props) {
@@ -28,44 +23,34 @@ export function TimeTable({ timeTable1st, timeTable2nd }: Props) {
       <div className="flex items-center justify-between">
         <p className="text-dark-600">公演時間</p>
         <TabList>
-          <Tab className="rounded px-3 text-dark-400 focus:outline-none data-[selected]:bg-dark-400 data-[selected]:text-white">
-            土曜日
-          </Tab>
-          <Tab className="rounded px-3 text-dark-400 focus:outline-none data-[selected]:bg-dark-400 data-[selected]:text-white">
-            日曜日
-          </Tab>
+          {["土曜日", "日曜日"].map((day) => (
+            <Tab
+              key={day}
+              className="rounded px-3 text-dark-400 focus:outline-none data-[selected]:bg-dark-400 data-[selected]:text-white"
+            >
+              {day}
+            </Tab>
+          ))}
         </TabList>
       </div>
       <TabPanels className="overflow-scroll pb-3 pl-1">
-        <TabPanel className="flex gap-5">
-          {timeTable1st.map(({ startTime, endTime }) => (
-            <Period
-              key={startTime.toString()}
-              startTime={startTime}
-              endTime={endTime}
-            />
-          ))}
-        </TabPanel>
-        <TabPanel className="flex gap-5">
-          {timeTable2nd.map(({ startTime, endTime }) => (
-            <Period
-              key={startTime.toString()}
-              startTime={startTime}
-              endTime={endTime}
-            />
-          ))}
-        </TabPanel>
+        {[timeTable1st, timeTable2nd].map((timeTable) => (
+          <TabPanel key={timeTable.toString()} className="flex gap-5">
+            {timeTable.map((period) => (
+              <PeriodCard key={period.toString()} period={period} />
+            ))}
+          </TabPanel>
+        ))}
       </TabPanels>
     </TabGroup>
   )
 }
 
-type PeriodProps = {
-  startTime: Date
-  endTime: Date
+type PeriodCardProps = {
+  period: Period
 }
 
-function Period({ startTime, endTime }: PeriodProps) {
+function PeriodCard({ period: { startTime, endTime } }: PeriodCardProps) {
   dayjs.extend(isBetween)
   const now = dayjs()
   return (

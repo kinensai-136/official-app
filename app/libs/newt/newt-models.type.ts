@@ -7,20 +7,20 @@ export const NewtModels = {
   STAGE_PROGRAMS: "stage-programs",
 } as const
 
+export type NewtPeriod = {
+  _id: string
+  startTime: string
+  endTime: string
+}
+
 export type NewtApplicantProgram = Content & {
   title: string
   organizer: string
   introduction: string
   tags: string[]
   location: string
-  timeTable1st: {
-    startTime: string
-    endTime: string
-  }[]
-  timeTable2nd: {
-    startTime: string
-    endTime: string
-  }[]
+  timeTable1st: NewtPeriod[]
+  timeTable2nd: NewtPeriod[]
 }
 
 export type NewtAuditoriumProgram = Content & {
@@ -28,14 +28,8 @@ export type NewtAuditoriumProgram = Content & {
   organizer: string
   introduction: string
   tags: string[]
-  schedule1st: {
-    startTime: string
-    endTime: string
-  }[]
-  schedule2nd: {
-    startTime: string
-    endTime: string
-  }[]
+  schedule1st: NewtPeriod[]
+  schedule2nd: NewtPeriod[]
 }
 
 export type NewtClassroomProgram = Content & {
@@ -44,14 +38,8 @@ export type NewtClassroomProgram = Content & {
   introduction: string
   tags: string[]
   location: string
-  timeTable1st: {
-    startTime: string
-    endTime: string
-  }[]
-  timeTable2nd: {
-    startTime: string
-    endTime: string
-  }[]
+  timeTable1st: NewtPeriod[]
+  timeTable2nd: NewtPeriod[]
 }
 
 export type NewtStageProgram = Content & {
@@ -59,12 +47,6 @@ export type NewtStageProgram = Content & {
   organizer: string
   introduction: string
   tags: string[]
-  schedule1st: {
-    startTime: string
-    endTime: string
-  }[]
-  schedule2nd: {
-    startTime: string
-    endTime: string
-  }[]
+  schedule1st: NewtPeriod[]
+  schedule2nd: NewtPeriod[]
 }
