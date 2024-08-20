@@ -28,10 +28,7 @@ export function TicketProvider({ children }: Props) {
   const fetchTicketDistributionStatuses = useCallback(
     async (program: Program) => {
       ;(await fetchTicketDistributionStatusesAsService(program)).forEach(
-        (status, periodId) => {
-          ticketDistributionStatuses.set(periodId, status)
-          console.log(periodId)
-        }
+        (status, periodId) => ticketDistributionStatuses.set(periodId, status)
       )
     },
     [ticketDistributionStatuses]

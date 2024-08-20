@@ -13,7 +13,6 @@ type Props = {
 export function NavItem({ to, label, icon, selectedIcon }: Props) {
   const pathname = useLocation().pathname
   const isSelected = pathname.startsWith(to)
-  console.log(pathname)
   return (
     <Link
       to={to}

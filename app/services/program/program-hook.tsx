@@ -51,7 +51,6 @@ export function ProgramProvider({ children }: Props) {
     }
   )
   useLayoutEffect(() => {
-    console.log("更新された企画一覧を取得しました")
     const asyncRun = async () => {
       const programs = await fetchPrograms()
       setPrograms(programs)
