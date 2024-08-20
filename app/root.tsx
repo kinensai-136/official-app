@@ -16,6 +16,7 @@ import { FavoriteProvider } from "~/services/favorite/favorite-hook"
 import { NoticeProvider } from "~/services/notice/notice-hook"
 import { ProgramProvider } from "~/services/program/program-hook"
 import { RecommendProvider } from "~/services/recommend/recommend-hook"
+import { TicketProvider } from "~/services/ticket/ticket-hook"
 import { VoteProvider } from "~/services/vote/vote-hook"
 import { MergedProvider } from "~/utils/merged-provider"
 
@@ -62,6 +63,7 @@ export default function App() {
         NoticeProvider,
         RecommendProvider,
         VoteProvider,
+        TicketProvider,
       ]}
     >
       <Outlet />
