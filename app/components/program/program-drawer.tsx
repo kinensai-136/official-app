@@ -12,6 +12,7 @@ import { TimeTable } from "~/components/program/drawer-parts/time-table"
 import { FavoriteButton } from "~/components/program/favorite-button"
 import { OpenMapButton } from "~/components/program/open-map-button"
 import { Program, ProgramCategory } from "~/services/program/program.type"
+import { useTicket } from "~/services/ticket/ticket-hook"
 
 const categoriesMap = {
   applicant: "有志企画",
@@ -26,15 +27,19 @@ type Props = {
 }
 
 export function ProgramDrawer({ program, children }: Props) {
+  const { fetchTicketDistributionStatuses } = useTicket()
   const hasTimeTable =
     (program.category === "applicant" || program.category === "classroom") &&
     (program.timeTable1st.length > 0 || program.timeTable2nd.length > 0)
   const hasSchedule =
     (program.category === "auditorium" || program.category === "stage") &&
     (program.schedule1st.length > 0 || program.schedule2nd.length > 0)
+  const handeClick = async () => fetchTicketDistributionStatuses(program)
   return (
     <Drawer.Root>
-      <Drawer.Trigger asChild>{children}</Drawer.Trigger>
+      <Drawer.Trigger asChild onClick={handeClick}>
+        {children}
+      </Drawer.Trigger>
       <Drawer.Portal>
         <Drawer.Overlay className="fixed inset-0 z-30 bg-dark-100/70" />
         <Drawer.Content className="fixed inset-x-0 bottom-0 z-40 flex h-4/5 flex-col border-t border-dark-300 bg-dark-200 px-6 py-4 pb-16 text-white focus:outline-none">
