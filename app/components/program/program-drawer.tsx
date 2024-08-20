@@ -4,7 +4,6 @@ import { Drawer } from "vaul"
 
 import { Category } from "~/components/program/drawer-parts/category"
 import { Information } from "~/components/program/drawer-parts/information"
-import { Introduction } from "~/components/program/drawer-parts/introduction"
 import { Location } from "~/components/program/drawer-parts/location"
 import { Schedule } from "~/components/program/drawer-parts/schedule"
 import { Tags } from "~/components/program/drawer-parts/tags"
@@ -44,16 +43,14 @@ export function ProgramDrawer({ program, children }: Props) {
         <Drawer.Overlay className="fixed inset-0 z-30 bg-dark-100/70" />
         <Drawer.Content className="fixed inset-x-0 bottom-0 z-40 flex h-4/5 flex-col border-t border-dark-300 bg-dark-200 px-6 py-4 pb-16 text-white focus:outline-none">
           <div className="mx-auto mb-5 h-1 w-16 rounded-full bg-dark-400" />
+          <div className="flex justify-between gap-5">
+            <Drawer.Title>
+              <p className="leading-none text-dark-600">{program.organizer}</p>
+              <p className="text-2xl font-bold">{program.title}</p>
+            </Drawer.Title>
+            <FavoriteButton program={program} size="large" />
+          </div>
           <div className="flex-1 space-y-3">
-            <div className="flex justify-between gap-5">
-              <div>
-                <p className="leading-none text-dark-600">
-                  {program.organizer}
-                </p>
-                <p className="text-2xl font-bold">{program.title}</p>
-              </div>
-              <FavoriteButton program={program} size="large" />
-            </div>
             <Tags>{program.tags}</Tags>
             <div className="flex gap-8">
               <Location>{program.location}</Location>
@@ -76,7 +73,9 @@ export function ProgramDrawer({ program, children }: Props) {
                 schedule2nd={program.schedule2nd}
               />
             )}
-            <Introduction>{program.introduction}</Introduction>
+            <Drawer.Description className="rounded bg-dark-300 px-4 py-3">
+              {program.introduction}
+            </Drawer.Description>
           </div>
           <OpenMapButton />
         </Drawer.Content>
