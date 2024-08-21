@@ -26,7 +26,10 @@ type VoteContext = {
   isVotedClassroomProgram: (program: Program) => boolean
   isVotedStagePerformanceProgram: (program: Program) => boolean
   voteClassroomProgram: (program: Program) => Promise<void>
-  voteStagePerformanceProgram: (program: Program) => Promise<void>
+  voteStagePerformanceProgram: (
+    program: Program,
+    swappedProgram?: Program
+  ) => Promise<void>
   unvoteClassroomProgram: () => Promise<void>
   unvoteStagePerformanceProgram: (program: Program) => Promise<void>
 }
@@ -64,9 +67,16 @@ export function VoteProvider({ children }: Props) {
       await voteClassroomProgramAsService(currentUser, program)
     }
   }
-  const voteStagePerformanceProgram = async (program: Program) => {
+  const voteStagePerformanceProgram = async (
+    program: Program,
+    swappedProgram?: Program
+  ) => {
     if (currentUser) {
-      await voteStagePerformanceProgramAsService(currentUser, program)
+      await voteStagePerformanceProgramAsService(
+        currentUser,
+        program,
+        swappedProgram
+      )
     }
   }
   const unvoteClassroomProgram = async () => {

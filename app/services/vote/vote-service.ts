@@ -6,6 +6,7 @@ import {
   DocumentReference,
   getDoc,
   getFirestore,
+  runTransaction,
   updateDoc,
 } from "firebase/firestore"
 
@@ -64,13 +65,28 @@ export async function fetchVotedStagePerformancePrograms(
 
 export async function voteStagePerformanceProgram(
   user: User,
-  program: Program
+  program: Program,
+  swappedProgram?: Program
 ) {
-  const userDoc = doc(getFirestore(), "users", user.uid)
-  const programDoc = doc(getFirestore(), "programs", program._id)
-  await updateDoc(userDoc, {
-    votedStagePerformancePrograms: arrayUnion(programDoc),
-  })
+  const firestore = getFirestore()
+  const userDoc = doc(firestore, "users", user.uid)
+  const programDoc = doc(firestore, "programs", program._id)
+  if (swappedProgram) {
+    await runTransaction(firestore, async (transaction) => {
+      const swappedProgramDoc = doc(firestore, "programs", swappedProgram._id)
+      transaction.get(userDoc)
+      transaction.update(userDoc, {
+        votedStagePerformancePrograms: arrayRemove(swappedProgramDoc),
+      })
+      transaction.update(userDoc, {
+        votedStagePerformancePrograms: arrayUnion(programDoc),
+      })
+    })
+  } else {
+    await updateDoc(userDoc, {
+      votedStagePerformancePrograms: arrayUnion(programDoc),
+    })
+  }
 }
 
 export async function unvoteStagePerformanceProgram(
