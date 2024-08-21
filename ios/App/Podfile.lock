@@ -4,11 +4,14 @@ PODS:
   - CapacitorCordova (6.1.1)
   - CapacitorKeyboard (6.0.1):
     - Capacitor
+  - CapacitorSplashScreen (6.0.2):
+    - Capacitor
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
   - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
   - "CapacitorKeyboard (from `../../node_modules/@capacitor/keyboard`)"
+  - "CapacitorSplashScreen (from `../../node_modules/@capacitor/splash-screen`)"
 
 EXTERNAL SOURCES:
   Capacitor:
@@ -17,12 +20,15 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/ios"
   CapacitorKeyboard:
     :path: "../../node_modules/@capacitor/keyboard"
+  CapacitorSplashScreen:
+    :path: "../../node_modules/@capacitor/splash-screen"
 
 SPEC CHECKSUMS:
   Capacitor: 8941aba4364ba9d1b22188569001f2ce45cc2b00
   CapacitorCordova: 8f2cc8d8d3619c566e9418fe8772064a94266106
   CapacitorKeyboard: 5f32a712adf41e07a61caafb82cf29fb6d8ba123
+  CapacitorSplashScreen: 250df9ef8014fac5c7c1fd231f0f8b1d8f0b5624
 
-PODFILE CHECKSUM: a1a5421ffb75d35b8adba03d926475cb0bf673cb
+PODFILE CHECKSUM: a11143910fc9bce98e34901320f78b0e38ed2953
 
 COCOAPODS: 1.15.2
