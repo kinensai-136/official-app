@@ -10,6 +10,9 @@ const config: CapacitorConfig = {
       resize: KeyboardResize.None,
       style: KeyboardStyle.Dark,
     },
+    SplashScreen: {
+      launchAutoHide: false,
+    },
   },
 }
 

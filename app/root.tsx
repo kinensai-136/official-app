@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 
+import { SplashScreen } from "@capacitor/splash-screen"
 import {
   Links,
   Meta,
@@ -24,6 +25,7 @@ import "@fontsource-variable/noto-sans-jp"
 
 export async function clientLoader() {
   await initializeFirebase()
+  await SplashScreen.hide()
   return null
 }
 
