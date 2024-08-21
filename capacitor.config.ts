@@ -3,7 +3,7 @@ import { KeyboardResize, KeyboardStyle } from "@capacitor/keyboard"
 
 const config: CapacitorConfig = {
   appId: "jp.kinensai.app136",
-  appName: "official-app",
+  appName: "136th 記念祭",
   webDir: "build/client",
   plugins: {
     Keyboard: {
