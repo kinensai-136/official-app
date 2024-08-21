@@ -36,9 +36,11 @@ export function VoteCard({ program }: Props) {
         await unvoteStagePerformanceProgram(program)
       } else {
         if (votedStagePerformancePrograms.length >= 3) {
-          await unvoteStagePerformanceProgram(votedStagePerformancePrograms[0])
+          const swappedProgram = votedStagePerformancePrograms[0]
+          await voteStagePerformanceProgram(program, swappedProgram)
+        } else {
+          await voteStagePerformanceProgram(program)
         }
-        await voteStagePerformanceProgram(program)
       }
     }
   }
