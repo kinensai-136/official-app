@@ -50,7 +50,8 @@ export async function fetchPrograms(): Promise<
       introduction: raw.introduction,
       location: raw.location,
       tags: raw.tags,
-      timeTable1st: raw.timeTable1st.map(({ startTime, endTime }) => ({
+      timeTable1st: raw.timeTable1st.map(({ _id, startTime, endTime }) => ({
+        _id,
         startTime: dayjs(startTime, "HH:mm")
           .year(2024)
           .month(9 - 1)
@@ -62,7 +63,8 @@ export async function fetchPrograms(): Promise<
           .date(28)
           .toDate(),
       })),
-      timeTable2nd: raw.timeTable2nd.map(({ startTime, endTime }) => ({
+      timeTable2nd: raw.timeTable2nd.map(({ _id, startTime, endTime }) => ({
+        _id,
         startTime: dayjs(startTime, "HH:mm")
           .year(2024)
           .month(9 - 1)
@@ -85,7 +87,8 @@ export async function fetchPrograms(): Promise<
       introduction: raw.introduction,
       location: "講堂",
       tags: raw.tags,
-      schedule1st: raw.schedule1st.map(({ startTime, endTime }) => ({
+      schedule1st: raw.schedule1st.map(({ _id, startTime, endTime }) => ({
+        _id,
         startTime: dayjs(startTime, "HH:mm")
           .year(2024)
           .month(9 - 1)
@@ -97,7 +100,8 @@ export async function fetchPrograms(): Promise<
           .date(28)
           .toDate(),
       })),
-      schedule2nd: raw.schedule2nd.map(({ startTime, endTime }) => ({
+      schedule2nd: raw.schedule2nd.map(({ _id, startTime, endTime }) => ({
+        _id,
         startTime: dayjs(startTime, "HH:mm")
           .year(2024)
           .month(9 - 1)
@@ -120,7 +124,8 @@ export async function fetchPrograms(): Promise<
       introduction: raw.introduction,
       location: raw.location,
       tags: raw.tags,
-      timeTable1st: raw.timeTable1st.map(({ startTime, endTime }) => ({
+      timeTable1st: raw.timeTable1st.map(({ _id, startTime, endTime }) => ({
+        _id,
         startTime: dayjs(startTime, "HH:mm")
           .year(2024)
           .month(9 - 1)
@@ -132,7 +137,8 @@ export async function fetchPrograms(): Promise<
           .date(28)
           .toDate(),
       })),
-      timeTable2nd: raw.timeTable2nd.map(({ startTime, endTime }) => ({
+      timeTable2nd: raw.timeTable2nd.map(({ _id, startTime, endTime }) => ({
+        _id,
         startTime: dayjs(startTime, "HH:mm")
           .year(2024)
           .month(9 - 1)
@@ -154,7 +160,8 @@ export async function fetchPrograms(): Promise<
     introduction: raw.introduction,
     location: "ステージ",
     tags: raw.tags,
-    schedule1st: raw.schedule1st.map(({ startTime, endTime }) => ({
+    schedule1st: raw.schedule1st.map(({ _id, startTime, endTime }) => ({
+      _id,
       startTime: dayjs(startTime, "HH:mm")
         .year(2024)
         .month(9 - 1)
@@ -166,7 +173,8 @@ export async function fetchPrograms(): Promise<
         .date(28)
         .toDate(),
     })),
-    schedule2nd: raw.schedule2nd.map(({ startTime, endTime }) => ({
+    schedule2nd: raw.schedule2nd.map(({ _id, startTime, endTime }) => ({
+      _id,
       startTime: dayjs(startTime, "HH:mm")
         .year(2024)
         .month(9 - 1)

@@ -66,7 +66,6 @@ export async function voteStagePerformanceProgram(
   user: User,
   program: Program
 ) {
-  console.log("voted")
   const userDoc = doc(getFirestore(), "users", user.uid)
   const programDoc = doc(getFirestore(), "programs", program._id)
   await updateDoc(userDoc, {
@@ -78,7 +77,6 @@ export async function unvoteStagePerformanceProgram(
   user: User,
   program: Program
 ) {
-  console.log("unvoted")
   const userDoc = doc(getFirestore(), "users", user.uid)
   const programDoc = doc(getFirestore(), "programs", program._id)
   await updateDoc(userDoc, {
