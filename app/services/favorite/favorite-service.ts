@@ -12,6 +12,10 @@ import {
 } from "firebase/firestore"
 
 import { Program } from "~/services/program/program.type"
+import {
+  cancelProgramRemainder,
+  scheduleProgramRemainder,
+} from "~/services/remainder/remainder-service"
 
 export async function fetchFavoritePrograms(
   allPrograms: Program[],
@@ -31,6 +35,7 @@ export async function favorProgram(user: User, program: Program) {
   const firestore = getFirestore()
   const userDoc = doc(firestore, "users", user.uid)
   const programDoc = doc(firestore, "programs", program._id)
+  await scheduleProgramRemainder(user, program)
   await updateDoc(userDoc, {
     favoritePrograms: arrayUnion(programDoc),
   })
@@ -41,6 +46,7 @@ export async function disfavorProgram(user: User, program: Program) {
   const firestore = getFirestore()
   const userDoc = doc(firestore, "users", user.uid)
   const programDoc = doc(firestore, "programs", program._id)
+  await cancelProgramRemainder(user, program)
   await updateDoc(userDoc, {
     favoritePrograms: arrayRemove(programDoc),
   })
