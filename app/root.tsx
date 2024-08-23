@@ -14,6 +14,7 @@ import "~/tailwind.css"
 import { NavBar } from "~/components/layout/nav-bar/nav-bar"
 import { initializeFirebase } from "~/libs/firebase/firebase-app"
 import { AuthProvider } from "~/services/auth/auth-hook"
+import { CommentProvider } from "~/services/comment/comment-hook"
 import { FavoriteProvider } from "~/services/favorite/favorite-hook"
 import { NoticeProvider } from "~/services/notice/notice-hook"
 import { ProgramProvider } from "~/services/program/program-hook"
@@ -74,6 +75,7 @@ export default function App() {
         RecommendProvider,
         VoteProvider,
         TicketProvider,
+        CommentProvider,
       ]}
     >
       <Outlet />

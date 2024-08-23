@@ -10,6 +10,7 @@ import { Tags } from "~/components/program/drawer-parts/tags"
 import { TimeTable } from "~/components/program/drawer-parts/time-table"
 import { FavoriteButton } from "~/components/program/favorite-button"
 import { OpenMapButton } from "~/components/program/open-map-button"
+import { SendCommentButton } from "~/components/program/send-comment-button"
 import { Program, ProgramCategory } from "~/services/program/program.type"
 import { useTicket } from "~/services/ticket/ticket-hook"
 
@@ -35,14 +36,14 @@ export function ProgramDrawer({ program, children }: Props) {
     (program.schedule1st.length > 0 || program.schedule2nd.length > 0)
   const handeClick = async () => fetchTicketDistributionStatuses(program)
   return (
-    <Drawer.Root>
+    <Drawer.Root disablePreventScroll>
       <Drawer.Trigger asChild onClick={handeClick}>
         {children}
       </Drawer.Trigger>
       <Drawer.Portal>
         <Drawer.Overlay className="fixed inset-0 z-30 bg-dark-100/70" />
-        <Drawer.Content className="fixed inset-x-0 bottom-0 z-40 flex h-4/5 flex-col border-t border-dark-300 bg-dark-200 px-6 py-4 pb-16 text-white focus:outline-none">
-          <div className="mx-auto mb-5 h-1 w-16 rounded-full bg-dark-400" />
+        <Drawer.Content className="fixed inset-x-0 bottom-0 z-40 flex h-4/5 flex-col gap-2 border-t border-dark-300 bg-dark-200 px-6 py-4 pb-16 text-white focus:outline-none">
+          <div className="mx-auto mb-3 h-1 w-16 rounded-full bg-dark-400" />
           <div className="flex justify-between gap-5">
             <Drawer.Title>
               <p className="leading-none text-dark-600">{program.organizer}</p>
@@ -50,7 +51,7 @@ export function ProgramDrawer({ program, children }: Props) {
             </Drawer.Title>
             <FavoriteButton program={program} size="large" />
           </div>
-          <div className="flex-1 space-y-3">
+          <div className="flex-1 space-y-3 overflow-scroll pb-5">
             <Tags>{program.tags}</Tags>
             <div className="flex gap-8">
               <Location>{program.location}</Location>
@@ -77,6 +78,7 @@ export function ProgramDrawer({ program, children }: Props) {
               {program.introduction}
             </Drawer.Description>
           </div>
+          <SendCommentButton program={program} />
           <OpenMapButton />
         </Drawer.Content>
       </Drawer.Portal>
