@@ -10,6 +10,7 @@ import {
 } from "firebase/firestore"
 
 import { Program } from "~/services/program/program.type"
+import { showToast } from "~/utils/show-toast"
 
 export async function fetchFavoritePrograms(
   allPrograms: Program[],
@@ -31,6 +32,7 @@ export async function favorProgram(user: User, program: Program) {
   await updateDoc(userDoc, {
     favoritePrograms: arrayUnion(programDoc),
   })
+  showToast("お気に入りに追加しました")
 }
 
 export async function disfavorProgram(user: User, program: Program) {
@@ -40,4 +42,5 @@ export async function disfavorProgram(user: User, program: Program) {
   await updateDoc(userDoc, {
     favoritePrograms: arrayRemove(programDoc),
   })
+  showToast("お気に入りから外しました")
 }

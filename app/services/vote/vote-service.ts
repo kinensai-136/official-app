@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore"
 
 import { Program } from "~/services/program/program.type"
+import { showToast } from "~/utils/show-toast"
 
 export async function fetchVotedClassroomProgram(
   allPrograms: Program[],
@@ -32,6 +33,7 @@ export async function voteClassroomProgram(user: User, program: Program) {
   await updateDoc(userDoc, {
     votedClassroomProgram: programDoc,
   })
+  showToast("投票ありがとうございます！")
 }
 
 export async function unvoteClassroomProgram(user: User) {
@@ -87,6 +89,7 @@ export async function voteStagePerformanceProgram(
       votedStagePerformancePrograms: arrayUnion(programDoc),
     })
   }
+  showToast("投票ありがとうございます！")
 }
 
 export async function unvoteStagePerformanceProgram(

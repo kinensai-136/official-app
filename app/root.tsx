@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import { Toaster } from "react-hot-toast"
 
 import { SplashScreen } from "@capacitor/splash-screen"
 import {
@@ -45,6 +46,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
+        <Toaster
+          gutter={4}
+          position="top-center"
+          containerStyle={{
+            top: "calc(env(safe-area-inset-top) + 3rem)",
+          }}
+        />
       </body>
     </html>
   )
