@@ -2,6 +2,7 @@ import { ReactNode } from "react"
 
 import {
   BellIcon,
+  ClockIcon,
   MegaphoneIcon,
   SparklesIcon,
 } from "@heroicons/react/24/solid"
@@ -13,6 +14,7 @@ import { Notice } from "~/services/notice/notice.type"
 const iconMap: { [K in string]: ReactNode } = {
   announcement: <MegaphoneIcon />,
   promotion: <SparklesIcon />,
+  remainder: <ClockIcon />,
 }
 
 type Props = {

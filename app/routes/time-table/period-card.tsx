@@ -29,14 +29,12 @@ export function PeriodCard({ startTime, endTime, program }: Props) {
         <p className="relative bottom-3.5 text-lg/none text-dark-500">
           {dayjs(startTime).format("HH:mm")}
         </p>
-        {isNow && (
-          <p className="text-sm font-semibold text-[#4ade80]">出演中</p>
-        )}
+        {isNow && <p className="text-sm font-semibold text-green">出演中</p>}
       </div>
       <div
         className={clsx(
           "flex-1 overflow-hidden rounded",
-          isNow && "outline outline-2 outline-[#4ade80]"
+          isNow && "outline outline-2 outline-green"
         )}
       >
         <ProgramCardForTimeTable program={program} />

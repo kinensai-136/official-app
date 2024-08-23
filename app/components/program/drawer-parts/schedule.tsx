@@ -58,7 +58,7 @@ function PeriodCard({ period: { startTime, endTime } }: PeriodCardProps) {
       <p
         className={clsx(
           "text-xl/tight",
-          now.isBetween(startTime, endTime) && "font-medium text-[#4ade80]",
+          now.isBetween(startTime, endTime) && "font-medium text-green",
           now.isAfter(endTime) && "text-dark-400"
         )}
       >

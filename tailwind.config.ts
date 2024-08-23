@@ -7,6 +7,7 @@ export default {
       transparent: "transparent",
       white: "#ffffff",
       yellow: "#facc15",
+      green: "#4ade80",
       primary: {
         100: "#1480f5",
         200: "#4c8df7",
@@ -39,6 +40,34 @@ export default {
       md: "1.25rem",
       lg: "1.5rem",
       full: "9999px",
+    },
+    extend: {
+      animation: {
+        enter: "enter .2s ease-out",
+        leave: "leave .15s ease-in forwards",
+      },
+      keyframes: {
+        enter: {
+          "0%": {
+            opacity: "0",
+            transform: "scale(.9)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+        },
+        leave: {
+          "0%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+          "100%": {
+            opacity: "0",
+            transform: "scale(.9)",
+          },
+        },
+      },
     },
   },
   plugins: [],
