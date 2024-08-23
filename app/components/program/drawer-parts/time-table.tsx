@@ -81,7 +81,7 @@ function PeriodCard({
         <p
           className={clsx(
             "text-xl/tight",
-            now.isBetween(startTime, endTime) && "font-medium text-[#4ade80]",
+            now.isBetween(startTime, endTime) && "font-medium text-green",
             now.isAfter(endTime) && "text-dark-400"
           )}
         >
@@ -104,7 +104,7 @@ function PeriodCard({
             !status && "text-dark-400",
             status === "never" && "text-dark-400",
             status === "soon" && "text-white",
-            status === "now" && "font-medium text-[#4ade80]",
+            status === "now" && "font-medium text-green",
             status === "ended" && "text-dark-500"
           )}
         >
