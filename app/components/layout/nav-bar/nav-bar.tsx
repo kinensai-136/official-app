@@ -17,7 +17,7 @@ import { NavItem } from "~/components/layout/nav-bar/nav-item"
 
 export function NavBar() {
   return (
-    <div className="flex w-dvw justify-between border-t border-dark-300 bg-dark-200 px-5 pb-[env(safe-area-inset-bottom)] pt-2.5">
+    <div className="flex w-dvw justify-between border-t border-dark-300 bg-dark-200 px-5 pb-[max(env(safe-area-inset-bottom),0.6rem)] pt-2.5">
       <NavItem
         label="ホーム"
         to="/home"
