@@ -16,6 +16,7 @@
     "@capacitor/core": "^6.1.1",
     "@capacitor/ios": "^6.1.1",
     "@capacitor/keyboard": "^6.0.1",
+    "@capacitor/local-notifications": "^6.1.0",
     "@capacitor/splash-screen": "^6.0.2",
     "@fontsource-variable/noto-sans-jp": "^5.0.19",
     "@headlessui/react": "^2.1.2",
