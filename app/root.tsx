@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { Toaster } from "react-hot-toast"
 
+import { LocalNotifications } from "@capacitor/local-notifications"
 import { SplashScreen } from "@capacitor/splash-screen"
 import {
   Links,
@@ -28,6 +29,7 @@ import "@fontsource-variable/noto-sans-jp"
 export async function clientLoader() {
   await initializeFirebase()
   await SplashScreen.hide()
+  await LocalNotifications.requestPermissions()
   return null
 }
 
