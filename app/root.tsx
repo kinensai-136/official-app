@@ -3,6 +3,7 @@ import { Toaster } from "react-hot-toast"
 
 import { LocalNotifications } from "@capacitor/local-notifications"
 import { SplashScreen } from "@capacitor/splash-screen"
+import { FirebaseMessaging, Importance } from "@capacitor-firebase/messaging"
 import {
   Links,
   Meta,
@@ -30,6 +31,30 @@ export async function clientLoader() {
   await initializeFirebase()
   await SplashScreen.hide()
   await LocalNotifications.requestPermissions()
+  await LocalNotifications.createChannel({
+    id: "high-priority",
+    name: "high-priority",
+    importance: Importance.High,
+  })
+  await FirebaseMessaging.requestPermissions()
+  await FirebaseMessaging.subscribeToTopic({ topic: "all-devices" })
+  await FirebaseMessaging.addListener(
+    "notificationReceived",
+    ({ notification }) => {
+      console.log(notification)
+      console.log(Number.parseInt(notification.id ?? ""))
+      LocalNotifications.schedule({
+        notifications: [
+          {
+            id: Number.parseInt(notification.id ?? ""),
+            title: notification.title ?? "",
+            body: notification.body ?? "",
+            channelId: "high-priority",
+          },
+        ],
+      })
+    }
+  )
   return null
 }
 

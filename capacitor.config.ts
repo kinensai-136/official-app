@@ -13,6 +13,12 @@ const config: CapacitorConfig = {
     SplashScreen: {
       launchAutoHide: false,
     },
+    LocalNotifications: {
+      smallIcon: "res://drawable/notification_icon",
+    },
+    PushNotifications: {
+      presentationOptions: ["badge", "sound", "alert"],
+    },
   },
 }
 
