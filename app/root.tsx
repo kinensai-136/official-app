@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { Toaster } from "react-hot-toast"
 
+import { Capacitor } from "@capacitor/core"
 import { LocalNotifications } from "@capacitor/local-notifications"
 import { SplashScreen } from "@capacitor/splash-screen"
 import { FirebaseMessaging, Importance } from "@capacitor-firebase/messaging"
@@ -30,31 +31,7 @@ import "@fontsource-variable/noto-sans-jp"
 export async function clientLoader() {
   await initializeFirebase()
   await SplashScreen.hide()
-  await LocalNotifications.requestPermissions()
-  await LocalNotifications.createChannel({
-    id: "high-priority",
-    name: "high-priority",
-    importance: Importance.High,
-  })
-  await FirebaseMessaging.requestPermissions()
-  await FirebaseMessaging.subscribeToTopic({ topic: "all-devices" })
-  await FirebaseMessaging.addListener(
-    "notificationReceived",
-    ({ notification }) => {
-      console.log(notification)
-      console.log(Number.parseInt(notification.id ?? ""))
-      LocalNotifications.schedule({
-        notifications: [
-          {
-            id: Number.parseInt(notification.id ?? ""),
-            title: notification.title ?? "",
-            body: notification.body ?? "",
-            channelId: "high-priority",
-          },
-        ],
-      })
-    }
-  )
+  initializeNotification()
   return null
 }
 
@@ -116,4 +93,34 @@ export default function App() {
 
 export function HydrateFallback() {
   return <p>Loading...</p>
+}
+
+async function initializeNotification() {
+  const platform = Capacitor.getPlatform()
+  await LocalNotifications.requestPermissions()
+  await FirebaseMessaging.requestPermissions()
+  await FirebaseMessaging.subscribeToTopic({ topic: "all-devices" })
+  if (platform === "android") {
+    await LocalNotifications.createChannel({
+      id: "high-priority",
+      name: "high-priority",
+      importance: Importance.High,
+    })
+    await FirebaseMessaging.addListener(
+      "notificationReceived",
+      ({ notification }) => {
+        console.log(Number.parseInt(notification.id ?? ""))
+        LocalNotifications.schedule({
+          notifications: [
+            {
+              id: Number.parseInt(notification.id ?? ""),
+              title: notification.title ?? "",
+              body: notification.body ?? "",
+              channelId: "high-priority",
+            },
+          ],
+        })
+      }
+    )
+  }
 }
