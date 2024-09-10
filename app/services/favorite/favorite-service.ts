@@ -1,3 +1,5 @@
+import { toast } from "react-toastify"
+
 import { User } from "firebase/auth"
 import {
   arrayRemove,
@@ -10,7 +12,6 @@ import {
 } from "firebase/firestore"
 
 import { Program } from "~/services/program/program.type"
-import { showToast } from "~/utils/show-toast"
 
 export async function fetchFavoritePrograms(
   allPrograms: Program[],
@@ -26,21 +27,21 @@ export async function fetchFavoritePrograms(
 }
 
 export async function favorProgram(user: User, program: Program) {
+  toast("お気に入りに追加しました")
   const firestore = getFirestore()
   const userDoc = doc(firestore, "users", user.uid)
   const programDoc = doc(firestore, "programs", program._id)
   await updateDoc(userDoc, {
     favoritePrograms: arrayUnion(programDoc),
   })
-  showToast("お気に入りに追加しました")
 }
 
 export async function disfavorProgram(user: User, program: Program) {
+  toast("お気に入りから外しました")
   const firestore = getFirestore()
   const userDoc = doc(firestore, "users", user.uid)
   const programDoc = doc(firestore, "programs", program._id)
   await updateDoc(userDoc, {
     favoritePrograms: arrayRemove(programDoc),
   })
-  showToast("お気に入りから外しました")
 }

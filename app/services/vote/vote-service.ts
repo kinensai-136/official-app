@@ -1,3 +1,5 @@
+import { toast } from "react-toastify"
+
 import { User } from "firebase/auth"
 import {
   arrayRemove,
@@ -11,7 +13,6 @@ import {
 } from "firebase/firestore"
 
 import { Program } from "~/services/program/program.type"
-import { showToast } from "~/utils/show-toast"
 
 export async function fetchVotedClassroomProgram(
   allPrograms: Program[],
@@ -28,12 +29,12 @@ export async function fetchVotedClassroomProgram(
 }
 
 export async function voteClassroomProgram(user: User, program: Program) {
+  toast("投票ありがとうございます！")
   const userDoc = doc(getFirestore(), "users", user.uid)
   const programDoc = doc(getFirestore(), "programs", program._id)
   await updateDoc(userDoc, {
     votedClassroomProgram: programDoc,
   })
-  showToast("投票ありがとうございます！")
 }
 
 export async function unvoteClassroomProgram(user: User) {
@@ -70,6 +71,7 @@ export async function voteStagePerformanceProgram(
   program: Program,
   swappedProgram?: Program
 ) {
+  toast("投票ありがとうございます！")
   const firestore = getFirestore()
   const userDoc = doc(firestore, "users", user.uid)
   const programDoc = doc(firestore, "programs", program._id)
@@ -89,7 +91,6 @@ export async function voteStagePerformanceProgram(
       votedStagePerformancePrograms: arrayUnion(programDoc),
     })
   }
-  showToast("投票ありがとうございます！")
 }
 
 export async function unvoteStagePerformanceProgram(

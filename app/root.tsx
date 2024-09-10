@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react"
-import { Toaster } from "react-hot-toast"
+import { ToastContainer, Zoom } from "react-toastify"
 
 import { Capacitor } from "@capacitor/core"
 import { LocalNotifications } from "@capacitor/local-notifications"
 import { SplashScreen } from "@capacitor/splash-screen"
 import { FirebaseMessaging, Importance } from "@capacitor-firebase/messaging"
+import { XMarkIcon } from "@heroicons/react/24/solid"
 import {
   Links,
   Meta,
@@ -26,6 +27,7 @@ import { TicketProvider } from "~/services/ticket/ticket-hook"
 import { VoteProvider } from "~/services/vote/vote-hook"
 import { MergedProvider } from "~/utils/merged-provider"
 
+import "react-toastify/dist/ReactToastify.css"
 import "@fontsource-variable/noto-sans-jp"
 
 export async function clientLoader() {
@@ -51,12 +53,22 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
-        <Toaster
-          gutter={4}
-          position="top-center"
-          containerStyle={{
-            top: "calc(env(safe-area-inset-top) + 3rem)",
-          }}
+        <ToastContainer
+          limit={4}
+          className={() =>
+            "fixed top-[calc(env(safe-area-inset-top)+24px)] z-50 w-full"
+          }
+          toastClassName={() =>
+            "mx-4 my-0.5 flex items-center justify-between gap-8 rounded-sm bg-dark-300/80 pl-5 font-medium text-white backdrop-blur"
+          }
+          hideProgressBar
+          closeButton={({ closeToast }) => (
+            <button onClick={closeToast}>
+              <XMarkIcon className="size-16 p-5 text-dark-500" />
+            </button>
+          )}
+          transition={Zoom}
+          autoClose={3000}
         />
       </body>
     </html>
