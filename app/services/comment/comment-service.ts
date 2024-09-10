@@ -1,10 +1,12 @@
+import { toast } from "react-toastify"
+
 import { User } from "firebase/auth"
 import { addDoc, collection, doc, getFirestore } from "firebase/firestore"
 
 import { Comment } from "~/services/comment/comment.type"
-import { showToast } from "~/utils/show-toast"
 
 export async function sendComment(user: User, comment: Comment) {
+  toast("応援ありがとうございます！")
   const programDoc = doc(getFirestore(), "programs", comment.program._id)
   const userCommentColelction = collection(
     getFirestore(),
@@ -16,5 +18,4 @@ export async function sendComment(user: User, comment: Comment) {
     body: comment.body,
     program: programDoc,
   })
-  showToast("応援ありがとうございます！")
 }
