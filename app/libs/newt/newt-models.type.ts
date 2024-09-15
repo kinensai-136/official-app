@@ -3,6 +3,7 @@ import { Content } from "newt-client-js"
 export const NewtModels = {
   APPLICANT_PROGRAMS: "applicant-programs",
   AUDITORIUM_PROGRAMS: "auditorium-programs",
+  BOOTH_PROGRAMS: "booth-programs",
   CLASSROOM_PROGRAMS: "classroom-programs",
   STAGE_PROGRAMS: "stage-programs",
 } as const
@@ -30,6 +31,14 @@ export type NewtAuditoriumProgram = Content & {
   tags: string[]
   schedule1st: NewtPeriod[]
   schedule2nd: NewtPeriod[]
+}
+
+export type NewtBoothProgram = Content & {
+  title: string
+  organizer: string
+  introduction: string
+  tags: string[]
+  price: number
 }
 
 export type NewtClassroomProgram = Content & {

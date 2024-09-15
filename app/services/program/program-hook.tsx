@@ -18,12 +18,14 @@ const ProgramContext = createContext<ProgramContext>({
   programs: {
     applicant: [],
     auditorium: [],
+    booth: [],
     classroom: [],
     stage: [],
   },
   programTags: {
     applicant: [],
     auditorium: [],
+    booth: [],
     classroom: [],
     stage: [],
   },
@@ -39,6 +41,7 @@ export function ProgramProvider({ children }: Props) {
   const [programs, setPrograms] = useState<ProgramContext["programs"]>({
     applicant: [],
     auditorium: [],
+    booth: [],
     classroom: [],
     stage: [],
   })
@@ -46,6 +49,7 @@ export function ProgramProvider({ children }: Props) {
     {
       applicant: [],
       auditorium: [],
+      booth: [],
       classroom: [],
       stage: [],
     }
