@@ -2,6 +2,7 @@ import {
   ArrowRightCircleIcon,
   ExclamationTriangleIcon,
 } from "@heroicons/react/24/outline"
+import { Link } from "@remix-run/react"
 
 export default function Page() {
   return (
@@ -30,14 +31,16 @@ export default function Page() {
         </div>
         <div className="justify-center align-middle text-[1.65rem] text-white">
           <div className="flex justify-center">
-            <button className="mx-10 mt-12 flex rounded-md bg-[#00b06b] ">
-              <div className="my-1 ml-2 size-11">
-                <ArrowRightCircleIcon />
-              </div>
-              <div className="my-1 mb-2 ml-1.5 mr-3 font-semibold">
-                避難経路を確認する
-              </div>
-            </button>
+            <Link to="/emergency_map">
+              <button className="mx-10 mt-12 flex rounded-md bg-[#00b06b]">
+                <div className="my-1 ml-2 size-11">
+                  <ArrowRightCircleIcon />
+                </div>
+                <div className="my-1 mb-2 ml-1.5 mr-3 font-semibold">
+                  避難経路を確認する
+                </div>
+              </button>
+            </Link>
           </div>
         </div>
       </div>
