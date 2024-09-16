@@ -21,6 +21,10 @@ export function LocationWrapper({ location, children }: Props) {
   const program = Object.values(programs)
     .flat()
     .find((program) => program.location === location)
+  const hasProgramMultiplyExisted =
+    Object.values(programs)
+      .flat()
+      .filter((program) => program.location === location).length > 1
   const handleClick = () => {
     setSearchParams((prev) => {
       prev.set("focusedLocation", location)
@@ -41,13 +45,13 @@ export function LocationWrapper({ location, children }: Props) {
      * そのため依存配列から除外しているが、eslintは警告を出してきます
      */
   }, [location, elementId, focusedLocation])
-  if (program) {
-    return (
-      <g id={elementId} ref={elementRef} onClick={handleClick}>
+  return (
+    <g id={elementId} ref={elementRef} onClick={handleClick}>
+      {program && !hasProgramMultiplyExisted ? (
         <ProgramDrawer program={program}>{children}</ProgramDrawer>
-      </g>
-    )
-  } else {
-    return children
-  }
+      ) : (
+        children
+      )}
+    </g>
+  )
 }
