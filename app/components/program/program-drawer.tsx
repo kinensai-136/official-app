@@ -68,6 +68,11 @@ export function ProgramDrawer({ program, children }: Props) {
                 </Information>
               </>
             )}
+            {!hasTimeTable && program.category === "classroom" && (
+              <Information>
+                15分間隔で常に整理券を配布しております。混雑時にはお並びをお断りさせていただく場合がございます。
+              </Information>
+            )}
             {hasSchedule && (
               <Schedule
                 schedule1st={program.schedule1st}
