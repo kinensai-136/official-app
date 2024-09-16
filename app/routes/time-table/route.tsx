@@ -68,7 +68,9 @@ export default function Page() {
                     </div>
                   ))}
                 </section>
-                <GoToButton>{name}</GoToButton>
+                <GoToButton to={`/map/?focusedLocation=${name}`}>
+                  {name}
+                </GoToButton>
               </TabPanel>
             )
           )}
