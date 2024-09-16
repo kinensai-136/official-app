@@ -64,7 +64,7 @@ export function ProgramDrawer({ program, children }: Props) {
                   timeTable2nd={program.timeTable2nd}
                 />
                 <Information>
-                  演劇のクラス企画や一部有志企画にはタイムテーブルが提供されています
+                  一回先の公演までの整理券を、教室前にて配布しております。直前に空きがあれば立ち見も可能です。
                 </Information>
               </>
             )}
