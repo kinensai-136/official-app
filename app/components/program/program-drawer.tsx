@@ -85,7 +85,7 @@ export function ProgramDrawer({ program, children }: Props) {
             </Drawer.Description>
           </div>
           <SendCommentButton program={program} />
-          <OpenMapButton />
+          <OpenMapButton location={program.location} />
         </Drawer.Content>
       </Drawer.Portal>
     </Drawer.Root>
