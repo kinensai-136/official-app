@@ -1,3 +1,5 @@
+import { LocationWrapper } from "~/routes/map/location-wrapper"
+
 export default function Map3F() {
   return (
     <svg
@@ -2599,217 +2601,265 @@ export default function Map3F() {
               </g>
             </g>
             <g id="Locations">
-              <path
-                id="CRAFTING"
-                d="M497.07 250.77V215.34H482.9V250.77H497.07Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="SUB_301"
-                d="M263.21 286.21V250.79H220.69V286.21H263.21Z"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="H_2J"
-                d="M263.21 357.07V321.64H218.92V357.07H263.21Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="H_2I"
-                d="M218.92 357.07V321.64H174.63V357.07H218.92Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="H_2H"
-                d="M174.63 357.07V321.64H130.34V357.07H174.63Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="H_2G"
-                d="M130.34 357.07V321.64H86.0501V357.07H130.34Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="H_2F"
-                d="M149.82 293.38V257.95H110.9V293.38H149.82Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="H_2E"
-                d="M149.82 257.95V222.52H110.9V257.95H149.82Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="H_2D"
-                d="M149.82 222.51V187.08H110.9V222.51H149.82Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="H_2C"
-                d="M149.82 187.08V151.65H110.9V187.08H149.82Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="H_2B"
-                d="M149.82 151.65V116.22H110.9V151.65H149.82Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="H_2A"
-                d="M149.82 116.21V80.78H110.9V116.21H149.82Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="J_2I"
-                d="M171.09 31.1801V66.6101H213.61V31.1801L171.09 31.1801Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="J_2H"
-                d="M213.61 31.1801V66.6101H256.13V31.1801L213.61 31.1801Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="J_2G"
-                d="M256.12 31.1801V66.6101H298.64V31.1801L256.12 31.1801Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="J_2F"
-                d="M298.64 31.1801V66.6101H341.16V31.1801L298.64 31.1801Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="STUDYING_3F"
-                d="M341.16 31.1801V66.6101H383.68V31.1801L341.16 31.1801Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="J_2E"
-                d="M401.4 66.61V103.73H440.38V66.61H401.4Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="J_2D"
-                d="M401.4 103.74V140.94H440.38V103.74H401.4Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="J_2C"
-                d="M401.4 140.93V179.91H440.38V140.93H401.4Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="J_2B"
-                d="M401.4 179.91V218.89H440.38V179.91H401.4Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="J_2A"
-                d="M401.4 218.88V257.86H440.38V218.88H401.4Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id="ART_J"
-                d="M525.47 250.78V194.08H497.07V250.78H525.47Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-                stroke="#D0D0D0"
-                strokeWidth="0.75"
-                strokeMiterlimit="10"
-              />
-              <path
-                id=" ARENA"
-                d="M43.5 477.656H1V250.5H43.5V477.656Z"
-                fill="#ACACAC"
-                fillOpacity="0.35"
-              />
+              <LocationWrapper location="高校校舎3階301補助教室">
+                <path
+                  id="SUB_301"
+                  d="M263.21 286.21V250.79H220.69V286.21H263.21Z"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="中学校舎3階工作室">
+                <path
+                  id="CRAFTING"
+                  d="M497.07 250.77V215.34H482.9V250.77H497.07Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="高校校舎3階2J教室">
+                <path
+                  id="H_2J"
+                  d="M263.21 357.07V321.64H218.92V357.07H263.21Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="高校校舎3階2I教室">
+                <path
+                  id="H_2I"
+                  d="M218.92 357.07V321.64H174.63V357.07H218.92Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="高校校舎3階2H教室">
+                <path
+                  id="H_2H"
+                  d="M174.63 357.07V321.64H130.34V357.07H174.63Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="高校校舎3階2G教室">
+                <path
+                  id="H_2G"
+                  d="M130.34 357.07V321.64H86.0501V357.07H130.34Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="高校校舎3階2F教室">
+                <path
+                  id="H_2F"
+                  d="M149.82 293.38V257.95H110.9V293.38H149.82Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="高校校舎3階2E教室">
+                <path
+                  id="H_2E"
+                  d="M149.82 257.95V222.52H110.9V257.95H149.82Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="高校校舎3階2D教室">
+                <path
+                  id="H_2D"
+                  d="M149.82 222.51V187.08H110.9V222.51H149.82Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="高校校舎3階2C教室">
+                <path
+                  id="H_2C"
+                  d="M149.82 187.08V151.65H110.9V187.08H149.82Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="高校校舎3階2B教室">
+                <path
+                  id="H_2B"
+                  d="M149.82 151.65V116.22H110.9V151.65H149.82Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="高校校舎3階2A教室">
+                <path
+                  id="H_2A"
+                  d="M149.82 116.21V80.78H110.9V116.21H149.82Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="中学校舎3階2I教室">
+                <path
+                  id="J_2I"
+                  d="M171.09 31.1801V66.6101H213.61V31.1801L171.09 31.1801Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="中学校舎3階2H教室">
+                <path
+                  id="J_2H"
+                  d="M213.61 31.1801V66.6101H256.13V31.1801L213.61 31.1801Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="中学校舎3階2G教室">
+                <path
+                  id="J_2G"
+                  d="M256.12 31.1801V66.6101H298.64V31.1801L256.12 31.1801Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="中学校舎3階2F教室">
+                <path
+                  id="J_2F"
+                  d="M298.64 31.1801V66.6101H341.16V31.1801L298.64 31.1801Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="中学校舎3階学習室">
+                <path
+                  id="STUDYING_3F"
+                  d="M341.16 31.1801V66.6101H383.68V31.1801L341.16 31.1801Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="中学校舎3階2E教室">
+                <path
+                  id="J_2E"
+                  d="M401.4 66.61V103.73H440.38V66.61H401.4Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="中学校舎3階2D教室">
+                <path
+                  id="J_2D"
+                  d="M401.4 103.74V140.94H440.38V103.74H401.4Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="中学校舎3階2C教室">
+                <path
+                  id="J_2C"
+                  d="M401.4 140.93V179.91H440.38V140.93H401.4Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="中学校舎3階2B教室">
+                <path
+                  id="J_2B"
+                  d="M401.4 179.91V218.89H440.38V179.91H401.4Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="中学校舎3階2A教室">
+                <path
+                  id="J_2A"
+                  d="M401.4 218.88V257.86H440.38V218.88H401.4Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="中学校舎3階美術室">
+                <path
+                  id="ART_J"
+                  d="M525.47 250.78V194.08H497.07V250.78H525.47Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="体育館">
+                <path
+                  id=" ARENA"
+                  d="M43.5 477.656H1V250.5H43.5V477.656Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                />
+              </LocationWrapper>
             </g>
           </g>
           <g id="Texts">
