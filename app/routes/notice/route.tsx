@@ -4,6 +4,7 @@ import dayjs from "dayjs"
 import { HeaderBar } from "~/components/layout/header-bar/header-bar"
 import { HeaderBarTitle } from "~/components/layout/header-bar/header-bar-title"
 import { DateDivider } from "~/routes/notice/date-divider"
+import { NotFoundCard } from "~/routes/notice/not-found-card"
 import { NoticeCard } from "~/routes/notice/notice-card"
 import { splitNotices } from "~/routes/notice/split-notices"
 import { useNotice } from "~/services/notice/notice-hook"
@@ -27,18 +28,22 @@ export default function Page() {
         </HeaderBar>
       </header>
       <main className="space-y-3 px-5">
-        {splitNotices(validNotices).map((splittedNotices) => (
-          <section key={splittedNotices[0]._id} className="space-y-2">
-            <DateDivider date={splittedNotices[0].createdAt} />
-            {splittedNotices.map((notice, index) => (
-              <NoticeCard
-                key={notice._id}
-                isEvenIndex={index % 2 === 0}
-                notice={notice}
-              />
-            ))}
-          </section>
-        ))}
+        {validNotices.length > 0 ? (
+          splitNotices(validNotices).map((splittedNotices) => (
+            <section key={splittedNotices[0]._id} className="space-y-2">
+              <DateDivider date={splittedNotices[0].createdAt} />
+              {splittedNotices.map((notice, index) => (
+                <NoticeCard
+                  key={notice._id}
+                  isEvenIndex={index % 2 === 0}
+                  notice={notice}
+                />
+              ))}
+            </section>
+          ))
+        ) : (
+          <NotFoundCard />
+        )}
       </main>
     </>
   )
