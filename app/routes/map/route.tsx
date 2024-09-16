@@ -9,6 +9,10 @@ import { useThrottle } from "@uidotdev/usehooks"
 
 import { HeaderBar } from "~/components/layout/header-bar/header-bar"
 import { HeaderBarTitle } from "~/components/layout/header-bar/header-bar-title"
+import Map1F from "~/routes/map/map-1f"
+import Map2F from "~/routes/map/map-2f"
+import Map3F from "~/routes/map/map-3f"
+import Map45F from "~/routes/map/map-45f"
 import { SelectFloorsButton } from "~/routes/map/select-floors-button"
 
 export default function Page() {
@@ -50,11 +54,15 @@ export default function Page() {
           onTransformed={handleTransform}
         >
           <TransformComponent wrapperStyle={{ height: "100%", width: "100%" }}>
-            <div className="h-dvh w-dvw bg-[#ffff00]" />
-            <div className="h-dvh w-dvw bg-[#ff0000]" />
-            <div className="h-dvh w-dvw bg-[#ff00ff]" />
-            <div className="h-dvh w-dvw bg-[#0000ff]" />
-            <div className="h-dvh w-dvw bg-[#00ffff]" />
+            <Map45F />
+            <Map3F />
+            <Map2F />
+            <Map1F />
+            <div className="flex h-dvh w-dvw items-center justify-center bg-dark-200">
+              <p className="text-sm text-white">
+                今後のアップデートで利用可能になります
+              </p>
+            </div>
           </TransformComponent>
         </TransformWrapper>
       </main>
