@@ -38,7 +38,7 @@ export function SendCommentDrawer({ program, children }: Props) {
           <div className="flex-1 space-y-3">
             <Drawer.Title>
               <p className="leading-none text-dark-600">{program.title} へ</p>
-              <p className="text-2xl font-bold">応援コメントを送る</p>
+              <p className="text-2xl font-bold">感想コメントを送る</p>
             </Drawer.Title>
             <div className="grid grid-cols-2 gap-1">
               {[
