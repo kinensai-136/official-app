@@ -15,7 +15,7 @@ export function SendCommentButton({ program }: Props) {
         className="flex w-full items-center justify-center gap-3 rounded-sm bg-dark-300 p-3 text-primary-200"
       >
         <ChatBubbleLeftRightIcon className="size-7" />
-        <p className="text-lg font-semibold">応援コメントを送る</p>
+        <p className="text-lg font-semibold">感想コメントを送る</p>
       </button>
     </SendCommentDrawer>
   )

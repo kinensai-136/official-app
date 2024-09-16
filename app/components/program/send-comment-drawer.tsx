@@ -38,7 +38,7 @@ export function SendCommentDrawer({ program, children }: Props) {
           <div className="flex-1 space-y-3">
             <Drawer.Title>
               <p className="leading-none text-dark-600">{program.title} へ</p>
-              <p className="text-2xl font-bold">応援コメントを送る</p>
+              <p className="text-2xl font-bold">感想コメントを送る</p>
             </Drawer.Title>
             <div className="grid grid-cols-2 gap-1">
               {[
@@ -65,7 +65,7 @@ export function SendCommentDrawer({ program, children }: Props) {
               className="w-full rounded-sm border border-primary-300 bg-dark-300 px-4 py-3 focus:outline-none"
             />
             <Information>
-              後日一部のコメントが主催者へ匿名で伝えられます。それまでは「データの消去」から送信が取り消せます。
+              一部の企画を除き、後日主催者へ匿名で伝えられます。良識あるコメントを心がけましょう。
             </Information>
             <Field className="flex items-center gap-2 px-px">
               <Checkbox
