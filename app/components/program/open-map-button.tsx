@@ -1,10 +1,14 @@
 import { ArrowRightCircleIcon } from "@heroicons/react/24/solid"
 import { Link } from "@remix-run/react"
 
-export function OpenMapButton() {
+type Props = {
+  location: string
+}
+
+export function OpenMapButton({ location }: Props) {
   return (
     <Link
-      to="/map"
+      to={`/map?focusedLocation=${location}`}
       className="flex w-full items-center justify-center gap-3 rounded-sm bg-primary-100 p-3"
     >
       <ArrowRightCircleIcon className="size-8" />

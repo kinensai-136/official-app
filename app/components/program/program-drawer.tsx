@@ -17,6 +17,7 @@ import { useTicket } from "~/services/ticket/ticket-hook"
 const categoriesMap = {
   applicant: "有志企画",
   auditorium: "講堂企画",
+  booth: "模擬店企画",
   classroom: "クラス企画",
   stage: "ステージ企画",
 } as const satisfies Record<ProgramCategory, string>
@@ -84,7 +85,7 @@ export function ProgramDrawer({ program, children }: Props) {
             </Drawer.Description>
           </div>
           <SendCommentButton program={program} />
-          <OpenMapButton />
+          <OpenMapButton location={program.location} />
         </Drawer.Content>
       </Drawer.Portal>
     </Drawer.Root>

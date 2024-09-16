@@ -14,11 +14,17 @@ export type Period = {
   endTime: Date
 }
 
-export type ProgramCategory = "applicant" | "auditorium" | "classroom" | "stage"
+export type ProgramCategory =
+  | "applicant"
+  | "auditorium"
+  | "booth"
+  | "classroom"
+  | "stage"
 
 export type Program =
   | ApplicantProgram
   | AuditoriumProgram
+  | BoothProgram
   | ClassroomProgram
   | StageProgram
 
@@ -33,6 +39,12 @@ export type AuditoriumProgram = CommonProps & {
   location: "講堂"
   schedule1st: Period[]
   schedule2nd: Period[]
+}
+
+export type BoothProgram = CommonProps & {
+  category: "booth"
+  location: "入場ゲート付近"
+  price: number
 }
 
 export type ClassroomProgram = CommonProps & {

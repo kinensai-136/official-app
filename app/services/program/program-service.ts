@@ -5,6 +5,7 @@ import { NEWT_APP_UID, newtClient } from "~/libs/newt/newt-client"
 import {
   NewtApplicantProgram,
   NewtAuditoriumProgram,
+  NewtBoothProgram,
   NewtClassroomProgram,
   NewtModels,
   NewtStageProgram,
@@ -12,6 +13,7 @@ import {
 import {
   ApplicantProgram,
   AuditoriumProgram,
+  BoothProgram,
   ClassroomProgram,
   Program,
   ProgramCategory,
@@ -32,6 +34,10 @@ export async function fetchPrograms(): Promise<
       appUid: NEWT_APP_UID,
       modelUid: NewtModels.AUDITORIUM_PROGRAMS,
     })
+  const rawBoothPrograms = await newtClient.getContents<NewtBoothProgram>({
+    appUid: NEWT_APP_UID,
+    modelUid: NewtModels.BOOTH_PROGRAMS,
+  })
   const rawClassroomPrograms =
     await newtClient.getContents<NewtClassroomProgram>({
       appUid: NEWT_APP_UID,
@@ -115,6 +121,16 @@ export async function fetchPrograms(): Promise<
       })),
     })
   )
+  const boothPrograms = rawBoothPrograms.items.map<BoothProgram>((raw) => ({
+    _id: raw._id,
+    category: "booth",
+    title: raw.title,
+    organizer: raw.organizer,
+    introduction: raw.introduction,
+    location: "入場ゲート付近",
+    tags: raw.tags,
+    price: raw.price,
+  }))
   const classroomPrograms = rawClassroomPrograms.items.map<ClassroomProgram>(
     (raw) => ({
       _id: raw._id,
@@ -190,6 +206,7 @@ export async function fetchPrograms(): Promise<
   return {
     applicant: applicantPrograms,
     auditorium: auditoriumPrograms,
+    booth: boothPrograms,
     classroom: classroomPrograms,
     stage: stagePrograms,
   }
