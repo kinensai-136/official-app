@@ -54,7 +54,7 @@ export function ProgramDrawer({ program, children }: Props) {
           </div>
           <div className="flex-1 space-y-3 overflow-scroll pb-5">
             <Tags>{program.tags}</Tags>
-            <div className="flex gap-8">
+            <div className="flex flex-wrap gap-x-8 gap-y-1">
               <Location>{program.location}</Location>
               <Category>{categoriesMap[program.category]}</Category>
             </div>
