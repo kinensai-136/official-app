@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useState } from "react"
 import {
   ReactZoomPanPinchRef,
   TransformComponent,
@@ -16,15 +16,15 @@ import Map45F from "~/routes/map/map-45f"
 import { SelectFloorsButton } from "~/routes/map/select-floors-button"
 
 export default function Page() {
-  const [rawNowFloor, setNowFloor] = useState(2)
+  const [rawNowFloor, setRawNowFloor] = useState(2)
+  const [mapRef, setMapRef] = useState<ReactZoomPanPinchRef | null>(null)
   const nowFloor = useThrottle(rawNowFloor, 0.1 * 1000)
-  const ref = useRef<ReactZoomPanPinchRef>(null)
   const scrollToFloor = (floor: number) => {
-    const minY = ref.current?.instance.bounds?.minPositionY ?? 0
-    const maxY = ref.current?.instance.bounds?.maxPositionY ?? 0
-    const x = ref.current?.state?.positionX ?? 0
-    const scale = ref.current?.state?.scale ?? 1
-    ref.current?.setTransform(x, ((minY - maxY) / 4) * (4 - floor), scale)
+    const minY = mapRef?.instance.bounds?.minPositionY ?? 0
+    const maxY = mapRef?.instance.bounds?.maxPositionY ?? 0
+    const x = mapRef?.state?.positionX ?? 0
+    const scale = mapRef?.state?.previousScale ?? 1
+    mapRef?.setTransform(x, ((minY - maxY) / 4) * (4 - floor), scale)
   }
   const handleTransform = (ref: ReactZoomPanPinchRef) => {
     const minY = ref.instance.bounds?.minPositionY ?? 0
@@ -33,7 +33,8 @@ export default function Page() {
     let floor = Math.floor(((y - minY) / (maxY - minY)) * 5)
     if (floor > 4) floor = 4
     if (floor < 0) floor = 0
-    setNowFloor(floor)
+    setRawNowFloor(floor)
+    setMapRef(ref)
   }
   return (
     <>
@@ -48,11 +49,7 @@ export default function Page() {
         <SelectFloorsButton nowFloor={nowFloor} scrollToFloor={scrollToFloor} />
       </div>
       <main className="fixed inset-0 m-auto h-dvh w-dvw">
-        <TransformWrapper
-          ref={ref}
-          centerOnInit
-          onTransformed={handleTransform}
-        >
+        <TransformWrapper centerOnInit onTransformed={handleTransform}>
           <TransformComponent wrapperStyle={{ height: "100%", width: "100%" }}>
             <Map45F />
             <Map3F />
