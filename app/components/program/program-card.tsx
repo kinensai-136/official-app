@@ -20,7 +20,9 @@ export function ProgramCard({ program }: Props) {
       <div className="flex gap-3">
         <ProgramDrawer program={program}>
           <div className="flex-1 overflow-hidden">
-            <p className="text-sm text-dark-600">{program.organizer}</p>
+            <p className="truncate text-sm text-dark-600">
+              {program.organizer}
+            </p>
             <h1 className="truncate text-lg font-semibold text-white">
               {program.title}
             </h1>
