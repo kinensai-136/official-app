@@ -109,7 +109,6 @@ export function HydrateFallback() {
 
 async function initializeNotification() {
   const platform = Capacitor.getPlatform()
-  await LocalNotifications.requestPermissions()
   await FirebaseMessaging.requestPermissions()
   await FirebaseMessaging.subscribeToTopic({ topic: "all-devices" })
   if (platform === "android") {
