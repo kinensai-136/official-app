@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
 import { ChatBubbleOvalLeftEllipsisIcon } from "@heroicons/react/24/solid"
 import { Link } from "@remix-run/react"
@@ -12,12 +12,11 @@ export function RecommendSection() {
   const [recommendProgram, setRecommendProgram] = useState<
     Program | undefined
   >()
-  const refreshRecommendProgram = useCallback(() => {
+  useEffect(() => {
     setRecommendProgram(
       recommendPrograms[Math.floor(Math.random() * recommendPrograms.length)]
     )
   }, [recommendPrograms])
-  useEffect(() => refreshRecommendProgram, [refreshRecommendProgram])
   return (
     <section className="space-y-3">
       <h2 className="px-0.5 text-xl font-medium text-white">
