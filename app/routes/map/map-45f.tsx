@@ -1805,7 +1805,7 @@ export default function Map45F() {
               </g>
             </g>
             <g id="Locations">
-              <LocationWrapper location="中学校舎4階1I教室">
+              <LocationWrapper location="中学校舎4階1年教室">
                 <path
                   id="J_1I"
                   d="M171.09 31.1901V66.6201H213.61V31.1901L171.09 31.1901Z"
@@ -1815,8 +1815,6 @@ export default function Map45F() {
                   strokeWidth="0.75"
                   strokeMiterlimit="10"
                 />
-              </LocationWrapper>
-              <LocationWrapper location="中学校舎4階1H教室">
                 <path
                   id="J_1H"
                   d="M213.61 31.1901V66.6201H256.13V31.1901L213.61 31.1901Z"
@@ -1826,8 +1824,6 @@ export default function Map45F() {
                   strokeWidth="0.75"
                   strokeMiterlimit="10"
                 />
-              </LocationWrapper>
-              <LocationWrapper location="中学校舎4階1G教室">
                 <path
                   id="J_1G"
                   d="M256.12 31.1901V66.6201H298.64V31.1901L256.12 31.1901Z"
@@ -1837,11 +1833,54 @@ export default function Map45F() {
                   strokeWidth="0.75"
                   strokeMiterlimit="10"
                 />
-              </LocationWrapper>
-              <LocationWrapper location="中学校舎4階1F教室">
                 <path
                   id="J_1F"
                   d="M298.64 31.1901V66.6201H341.16V31.1901L298.64 31.1901Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+                <path
+                  id="J_1E"
+                  d="M401.4 66.62V103.74H440.38V66.62H401.4Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+                <path
+                  id="J_1D"
+                  d="M401.4 103.74V140.94H440.38V103.74H401.4Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+                <path
+                  id="J_1C"
+                  d="M401.4 140.94V179.92H440.38V140.94H401.4Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+                <path
+                  id="J_1B"
+                  d="M401.4 179.91V218.89H440.38V179.91H401.4Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                  stroke="#D0D0D0"
+                  strokeWidth="0.75"
+                  strokeMiterlimit="10"
+                />
+                <path
+                  id="J_1A"
+                  d="M401.4 218.89V257.87H440.38V218.89H401.4Z"
                   fill="#ACACAC"
                   fillOpacity="0.35"
                   stroke="#D0D0D0"
@@ -1853,61 +1892,6 @@ export default function Map45F() {
                 <path
                   id="4F_Studyroom"
                   d="M341.16 31.1901V66.6201H383.68V31.1901L341.16 31.1901Z"
-                  fill="#ACACAC"
-                  fillOpacity="0.35"
-                  stroke="#D0D0D0"
-                  strokeWidth="0.75"
-                  strokeMiterlimit="10"
-                />
-              </LocationWrapper>
-              <LocationWrapper location="中学校舎4階1E教室">
-                <path
-                  id="J_1E"
-                  d="M401.4 66.62V103.74H440.38V66.62H401.4Z"
-                  fill="#ACACAC"
-                  fillOpacity="0.35"
-                  stroke="#D0D0D0"
-                  strokeWidth="0.75"
-                  strokeMiterlimit="10"
-                />
-              </LocationWrapper>
-              <LocationWrapper location="中学校舎4階1D教室">
-                <path
-                  id="J_1D"
-                  d="M401.4 103.74V140.94H440.38V103.74H401.4Z"
-                  fill="#ACACAC"
-                  fillOpacity="0.35"
-                  stroke="#D0D0D0"
-                  strokeWidth="0.75"
-                  strokeMiterlimit="10"
-                />
-              </LocationWrapper>
-              <LocationWrapper location="中学校舎4階1C教室">
-                <path
-                  id="J_1C"
-                  d="M401.4 140.94V179.92H440.38V140.94H401.4Z"
-                  fill="#ACACAC"
-                  fillOpacity="0.35"
-                  stroke="#D0D0D0"
-                  strokeWidth="0.75"
-                  strokeMiterlimit="10"
-                />
-              </LocationWrapper>
-              <LocationWrapper location="中学校舎4階1B教室">
-                <path
-                  id="J_1B"
-                  d="M401.4 179.91V218.89H440.38V179.91H401.4Z"
-                  fill="#ACACAC"
-                  fillOpacity="0.35"
-                  stroke="#D0D0D0"
-                  strokeWidth="0.75"
-                  strokeMiterlimit="10"
-                />
-              </LocationWrapper>
-              <LocationWrapper location="中学校舎4階1A教室">
-                <path
-                  id="J_1A"
-                  d="M401.4 218.89V257.87H440.38V218.89H401.4Z"
                   fill="#ACACAC"
                   fillOpacity="0.35"
                   stroke="#D0D0D0"
