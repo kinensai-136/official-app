@@ -23,9 +23,9 @@ export function FavoriteSection() {
             まだお気に入りに何もありません
             <br />
             <Link to="/home/search" className="text-primary-300">
-              企画を探し
+              企画を探して
             </Link>
-            てみませんか？
+            みませんか？
           </p>
         )}
       </ul>

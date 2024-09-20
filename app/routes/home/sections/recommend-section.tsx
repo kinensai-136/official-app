@@ -35,7 +35,7 @@ export function RecommendSection() {
           あなたへのおすすめがありません・・・
           <br />
           <Link to="/home/search" className="text-primary-300">
-            企画を探し
+            企画を探して
           </Link>
           て、お気に入りを見つけよう
         </p>
