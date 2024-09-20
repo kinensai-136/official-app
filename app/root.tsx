@@ -1,3 +1,11 @@
+import { useEffect, useRef, useState } from "react"
+import { ToastContainer, Zoom } from "react-toastify"
+
+import { Capacitor } from "@capacitor/core"
+import { LocalNotifications } from "@capacitor/local-notifications"
+import { SplashScreen } from "@capacitor/splash-screen"
+import { FirebaseMessaging, Importance } from "@capacitor-firebase/messaging"
+import { XMarkIcon } from "@heroicons/react/24/solid"
 import {
   Links,
   Meta,
@@ -7,6 +15,27 @@ import {
 } from "@remix-run/react"
 
 import "~/tailwind.css"
+import { NavBar } from "~/components/layout/nav-bar/nav-bar"
+import { initializeFirebase } from "~/libs/firebase/firebase-app"
+import { AuthProvider } from "~/services/auth/auth-hook"
+import { CommentProvider } from "~/services/comment/comment-hook"
+import { FavoriteProvider } from "~/services/favorite/favorite-hook"
+import { NoticeProvider } from "~/services/notice/notice-hook"
+import { ProgramProvider } from "~/services/program/program-hook"
+import { RecommendProvider } from "~/services/recommend/recommend-hook"
+import { TicketProvider } from "~/services/ticket/ticket-hook"
+import { VoteProvider } from "~/services/vote/vote-hook"
+import { MergedProvider } from "~/utils/merged-provider"
+
+import "react-toastify/dist/ReactToastify.css"
+import "@fontsource-variable/noto-sans-jp"
+
+export async function clientLoader() {
+  await initializeFirebase()
+  await SplashScreen.hide()
+  initializeNotification()
+  return null
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -20,19 +49,89 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-dark-100">
         {children}
         <ScrollRestoration />
         <Scripts />
+        <ToastContainer
+          limit={4}
+          className={() =>
+            "fixed top-[calc(env(safe-area-inset-top)+24px)] z-50 w-full"
+          }
+          toastClassName={() =>
+            "mx-4 my-0.5 flex items-center justify-between gap-8 rounded-sm bg-dark-300/80 pl-5 font-medium text-white backdrop-blur"
+          }
+          hideProgressBar
+          closeButton={({ closeToast }) => (
+            <button onClick={closeToast}>
+              <XMarkIcon className="size-16 p-5 text-dark-500" />
+            </button>
+          )}
+          transition={Zoom}
+          autoClose={3000}
+        />
       </body>
     </html>
   )
 }
 
 export default function App() {
-  return <Outlet />
+  const navBarRef = useRef<HTMLDivElement>(null)
+  const [navBarHeight, setNavBarHeight] = useState(0)
+  useEffect(() => {
+    setNavBarHeight(navBarRef.current?.getBoundingClientRect().height ?? 0)
+  }, [])
+  return (
+    <MergedProvider
+      providers={[
+        AuthProvider,
+        ProgramProvider,
+        FavoriteProvider,
+        NoticeProvider,
+        RecommendProvider,
+        VoteProvider,
+        TicketProvider,
+        CommentProvider,
+      ]}
+    >
+      <Outlet />
+      <div style={{ height: navBarHeight + 24 }} />
+      <footer ref={navBarRef} className="fixed inset-x-0 bottom-0 z-20 mx-auto">
+        <NavBar />
+      </footer>
+    </MergedProvider>
+  )
 }
 
 export function HydrateFallback() {
   return <p>Loading...</p>
+}
+
+async function initializeNotification() {
+  const platform = Capacitor.getPlatform()
+  await FirebaseMessaging.requestPermissions()
+  await FirebaseMessaging.subscribeToTopic({ topic: "all-devices" })
+  if (platform === "android") {
+    await LocalNotifications.createChannel({
+      id: "high-priority",
+      name: "high-priority",
+      importance: Importance.High,
+    })
+    await FirebaseMessaging.addListener(
+      "notificationReceived",
+      ({ notification }) => {
+        console.log(Number.parseInt(notification.id ?? ""))
+        LocalNotifications.schedule({
+          notifications: [
+            {
+              id: Number.parseInt(notification.id ?? ""),
+              title: notification.title ?? "",
+              body: notification.body ?? "",
+              channelId: "high-priority",
+            },
+          ],
+        })
+      }
+    )
+  }
 }

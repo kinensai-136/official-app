@@ -3,7 +3,72 @@ import type { Config } from "tailwindcss"
 export default {
   content: ["./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    colors: {
+      transparent: "transparent",
+      white: "#ffffff",
+      yellow: "#facc15",
+      green: "#4ade80",
+      primary: {
+        100: "#1480f5",
+        200: "#4c8df7",
+        300: "#6b9af8",
+        400: "#85a8fa",
+        500: "#9cb6fb",
+        600: "#b1c4fc",
+      },
+      dark: {
+        100: "#0A0A0A",
+        200: "#191919",
+        300: "#272727",
+        400: "#5C5C5C",
+        500: "#7F7F7F",
+        600: "#9A9A9A",
+      },
+    },
+    fontSize: {
+      xs: "0.8rem",
+      sm: "0.9rem",
+      base: "1rem",
+      lg: "1.1rem",
+      xl: "1.25rem",
+      "2xl": "1.5rem",
+    },
+    borderRadius: {
+      none: "0",
+      sm: "1.0rem",
+      DEFAULT: "1.25rem",
+      md: "1.25rem",
+      lg: "1.5rem",
+      full: "9999px",
+    },
+    extend: {
+      animation: {
+        enter: "enter .2s ease-out",
+        leave: "leave .15s ease-in forwards",
+      },
+      keyframes: {
+        enter: {
+          "0%": {
+            opacity: "0",
+            transform: "scale(.9)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+        },
+        leave: {
+          "0%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+          "100%": {
+            opacity: "0",
+            transform: "scale(.9)",
+          },
+        },
+      },
+    },
   },
   plugins: [],
 } satisfies Config

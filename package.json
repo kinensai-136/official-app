@@ -12,13 +12,28 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@capacitor-firebase/messaging": "^6.1.0",
     "@capacitor/android": "^6.1.1",
     "@capacitor/core": "^6.1.1",
     "@capacitor/ios": "^6.1.1",
+    "@capacitor/keyboard": "^6.0.1",
+    "@capacitor/local-notifications": "^6.1.0",
+    "@capacitor/splash-screen": "^6.0.2",
+    "@fontsource-variable/noto-sans-jp": "^5.0.19",
+    "@headlessui/react": "^2.1.2",
+    "@heroicons/react": "^2.1.5",
     "@remix-run/node": "^2.10.3",
     "@remix-run/react": "^2.10.3",
+    "@uidotdev/usehooks": "^2.4.1",
+    "clsx": "^2.1.1",
+    "dayjs": "^1.11.12",
+    "firebase": "^10.12.5",
+    "newt-client-js": "^3.3.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-toastify": "^10.0.5",
+    "react-zoom-pan-pinch": "3.6.0",
+    "vaul": "^0.9.1"
   },
   "devDependencies": {
     "@capacitor/cli": "^6.1.1",
