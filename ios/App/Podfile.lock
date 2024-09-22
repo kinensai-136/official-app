@@ -1,6 +1,8 @@
 PODS:
   - Capacitor (6.1.1):
     - CapacitorCordova
+  - CapacitorBrowser (6.0.2):
+    - Capacitor
   - CapacitorCordova (6.1.1)
   - CapacitorFirebaseMessaging (6.1.0):
     - Capacitor
@@ -69,6 +71,7 @@ PODS:
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorBrowser (from `../../node_modules/@capacitor/browser`)"
   - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
   - "CapacitorFirebaseMessaging (from `../../node_modules/@capacitor-firebase/messaging`)"
   - "CapacitorKeyboard (from `../../node_modules/@capacitor/keyboard`)"
@@ -89,6 +92,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   Capacitor:
     :path: "../../node_modules/@capacitor/ios"
+  CapacitorBrowser:
+    :path: "../../node_modules/@capacitor/browser"
   CapacitorCordova:
     :path: "../../node_modules/@capacitor/ios"
   CapacitorFirebaseMessaging:
@@ -102,6 +107,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Capacitor: 8941aba4364ba9d1b22188569001f2ce45cc2b00
+  CapacitorBrowser: 83ec661a9ccd56c28a6851e4dd1ac33b181227ec
   CapacitorCordova: 8f2cc8d8d3619c566e9418fe8772064a94266106
   CapacitorFirebaseMessaging: 116031aec3ed6d61a14f58cd6bd4b3a51e6a82c8
   CapacitorKeyboard: 5f32a712adf41e07a61caafb82cf29fb6d8ba123
@@ -116,6 +122,6 @@ SPEC CHECKSUMS:
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
 
-PODFILE CHECKSUM: 8f71eabfdbf1cacc36f2c3da851bb78d81c9d280
+PODFILE CHECKSUM: f68169e20302f1853ebc797f0ade8b8298cdc47c
 
 COCOAPODS: 1.15.2
