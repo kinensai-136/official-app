@@ -2,6 +2,7 @@ import { HeaderBar } from "~/components/layout/header-bar/header-bar"
 import { HeaderBarTitle } from "~/components/layout/header-bar/header-bar-title"
 import { SearchButton } from "~/routes/home/search-button"
 import { FavoriteSection } from "~/routes/home/sections/favorite-section"
+import { OptionsSection } from "~/routes/home/sections/options-section"
 import { RecommendSection } from "~/routes/home/sections/recommend-section"
 
 export default function Page() {
@@ -18,6 +19,7 @@ export default function Page() {
       <main className="px-5">
         <RecommendSection />
         <FavoriteSection />
+        <OptionsSection />
       </main>
     </>
   )
