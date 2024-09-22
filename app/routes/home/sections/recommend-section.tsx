@@ -18,7 +18,7 @@ export function RecommendSection() {
     )
   }, [recommendPrograms])
   return (
-    <section className="space-y-3">
+    <section className="space-y-3 py-2">
       <h2 className="px-0.5 text-xl font-medium text-white">
         あなたへのおすすめ
       </h2>

@@ -15,7 +15,7 @@ export default function Page() {
           </div>
         </HeaderBar>
       </header>
-      <main className="space-y-5 px-5">
+      <main className="px-5">
         <RecommendSection />
         <FavoriteSection />
       </main>
