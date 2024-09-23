@@ -14,8 +14,6 @@ export default function Map2F() {
         <g id="æ ¡èå°å³ç¸¦_2F">
           <g id="Figures">
             <g id="Vector 6">
-              <path d="M567.906 130H476V31.1911H567.906V130Z" fill="#353535" />
-              <path d="M476 165.722V134H525.5V165.722H476Z" fill="#353535" />
               <path
                 fillRule="evenodd"
                 clipRule="evenodd"
@@ -5888,7 +5886,7 @@ export default function Map2F() {
               <path
                 id="POOL"
                 d="M567.93 130.3V31.1801H475.8V130.3H567.93Z"
-                fill="#353535"
+                fill="none"
                 stroke="#D0D0D0"
                 strokeWidth="0.75"
                 strokeMiterlimit="10"
@@ -5896,7 +5894,7 @@ export default function Map2F() {
               <path
                 id="J_CLUBS"
                 d="M525.41 165.83V133.94H475.8V165.83H525.41Z"
-                fill="#353535"
+                fill="none"
                 stroke="#D0D0D0"
                 strokeWidth="0.75"
                 strokeMiterlimit="10"
