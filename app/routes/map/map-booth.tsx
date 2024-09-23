@@ -1,6 +1,6 @@
 import { LocationWrapper } from "~/routes/map/location-wrapper"
 
-export default function Map45F() {
+export default function MapBooth() {
   return (
     <svg
       width="553"
@@ -412,7 +412,7 @@ export default function Map45F() {
                 <path
                   id="BOOTH_1"
                   d="M33 251V207H1L1 251H33Z"
-                  fill="#353535"
+                  fill="#ACACAC"
                   stroke="#D0D0D0"
                   strokeWidth="0.75"
                   strokeMiterlimit="10"
@@ -422,7 +422,7 @@ export default function Map45F() {
                 <path
                   id="BOOTH_2"
                   d="M65 251V207H33V251H65Z"
-                  fill="#353535"
+                  fill="#ACACAC"
                   stroke="#D0D0D0"
                   strokeWidth="0.75"
                   strokeMiterlimit="10"
@@ -432,7 +432,7 @@ export default function Map45F() {
                 <path
                   id="BOOTH_3"
                   d="M97 251V207H65V251H97Z"
-                  fill="#353535"
+                  fill="#ACACAC"
                   stroke="#D0D0D0"
                   strokeWidth="0.75"
                   strokeMiterlimit="10"
@@ -442,7 +442,7 @@ export default function Map45F() {
                 <path
                   id="BOOTH_4"
                   d="M130 251V207H97V251H130Z"
-                  fill="#353535"
+                  fill="#ACACAC"
                   stroke="#D0D0D0"
                   strokeWidth="0.75"
                   strokeMiterlimit="10"
@@ -452,7 +452,7 @@ export default function Map45F() {
                 <path
                   id="BOOTH_5"
                   d="M162 251V207H129V251H162Z"
-                  fill="#353535"
+                  fill="#ACACAC"
                   stroke="#D0D0D0"
                   strokeWidth="0.75"
                   strokeMiterlimit="10"
@@ -462,7 +462,7 @@ export default function Map45F() {
                 <path
                   id="BOOTH_6"
                   d="M194 251V207H162V251H194Z"
-                  fill="#353535"
+                  fill="#ACACAC"
                   stroke="#D0D0D0"
                   strokeWidth="0.75"
                   strokeMiterlimit="10"
@@ -472,7 +472,7 @@ export default function Map45F() {
                 <path
                   id="BOOTH_7"
                   d="M226 251V207H194V251H226Z"
-                  fill="#353535"
+                  fill="#ACACAC"
                   stroke="#D0D0D0"
                   strokeWidth="0.75"
                   strokeMiterlimit="10"
@@ -482,7 +482,7 @@ export default function Map45F() {
                 <path
                   id="BOOTH_8"
                   d="M150 448.4H106V480.4H150V448.4Z"
-                  fill="#353535"
+                  fill="#ACACAC"
                   stroke="#D0D0D0"
                   strokeWidth="0.75"
                   strokeMiterlimit="10"
@@ -492,7 +492,7 @@ export default function Map45F() {
                 <path
                   id="BOOTH_9"
                   d="M150 480.4H106V512.4H150V480.4Z"
-                  fill="#353535"
+                  fill="#ACACAC"
                   stroke="#D0D0D0"
                   strokeWidth="0.75"
                   strokeMiterlimit="10"
@@ -502,7 +502,7 @@ export default function Map45F() {
                 <path
                   id="BOOTH_10"
                   d="M150 512.4H106V544.4H150V512.4Z"
-                  fill="#353535"
+                  fill="#ACACAC"
                   stroke="#D0D0D0"
                   strokeWidth="0.75"
                   strokeMiterlimit="10"
