@@ -6,7 +6,7 @@ import { addDoc, collection, doc, getFirestore } from "firebase/firestore"
 import { Comment } from "~/services/comment/comment.type"
 
 export async function sendComment(user: User, comment: Comment) {
-  toast("ご意見ありがとうございます！")
+  toast("ご感想ありがとうございます！")
   const programDoc = doc(getFirestore(), "programs", comment.program._id)
   const userCommentColelction = collection(
     getFirestore(),

@@ -1,5 +1,7 @@
-import { ReactNode } from "react"
+import { ReactNode, useState } from "react"
 
+import { ArrowRightCircleIcon } from "@heroicons/react/24/solid"
+import { Link } from "@remix-run/react"
 import { Drawer } from "vaul"
 
 import { Category } from "~/components/program/drawer-parts/category"
@@ -9,7 +11,6 @@ import { Schedule } from "~/components/program/drawer-parts/schedule"
 import { Tags } from "~/components/program/drawer-parts/tags"
 import { TimeTable } from "~/components/program/drawer-parts/time-table"
 import { FavoriteButton } from "~/components/program/favorite-button"
-import { OpenMapButton } from "~/components/program/open-map-button"
 import { SendCommentButton } from "~/components/program/send-comment-button"
 import { Program, ProgramCategory } from "~/services/program/program.type"
 import { useTicket } from "~/services/ticket/ticket-hook"
@@ -28,6 +29,7 @@ type Props = {
 }
 
 export function ProgramDrawer({ program, children }: Props) {
+  const [isOpen, setIsOpen] = useState(false)
   const { fetchTicketDistributionStatuses } = useTicket()
   const hasTimeTable =
     (program.category === "applicant" || program.category === "classroom") &&
@@ -37,7 +39,7 @@ export function ProgramDrawer({ program, children }: Props) {
     (program.schedule1st.length > 0 || program.schedule2nd.length > 0)
   const handeClick = async () => fetchTicketDistributionStatuses(program)
   return (
-    <Drawer.Root disablePreventScroll>
+    <Drawer.Root open={isOpen} onOpenChange={setIsOpen} disablePreventScroll>
       <Drawer.Trigger asChild onClick={handeClick}>
         {children}
       </Drawer.Trigger>
@@ -85,7 +87,14 @@ export function ProgramDrawer({ program, children }: Props) {
             </Drawer.Description>
           </div>
           <SendCommentButton program={program} />
-          <OpenMapButton location={program.location} />
+          <Link
+            to={`/map?focusedLocation=${location}`}
+            onClick={() => setIsOpen(false)}
+            className="flex w-full items-center justify-center gap-3 rounded-sm bg-primary-100 p-3"
+          >
+            <ArrowRightCircleIcon className="size-8" />
+            <p className="text-lg font-semibold">マップで開く</p>
+          </Link>
         </Drawer.Content>
       </Drawer.Portal>
     </Drawer.Root>

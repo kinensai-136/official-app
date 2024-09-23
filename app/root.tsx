@@ -62,13 +62,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
             "mx-4 my-0.5 flex items-center justify-between gap-8 rounded-sm bg-dark-300/80 pl-5 font-medium text-white backdrop-blur"
           }
           hideProgressBar
-          closeButton={({ closeToast }) => (
-            <button onClick={closeToast}>
-              <XMarkIcon className="size-16 p-5 text-dark-500" />
-            </button>
-          )}
+          closeButton={<XMarkIcon className="size-16 p-5 text-dark-500" />}
           transition={Zoom}
           autoClose={3000}
+          closeOnClick
         />
       </body>
     </html>

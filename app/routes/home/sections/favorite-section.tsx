@@ -6,7 +6,7 @@ import { useFavorite } from "~/services/favorite/favorite-hook"
 export function FavoriteSection() {
   const { favoritePrograms } = useFavorite()
   return (
-    <section className="space-y-3">
+    <section className="space-y-3 pt-2">
       <div className="flex items-center justify-between">
         <h2 className="px-0.5 text-xl font-medium text-white">お気に入り</h2>
         <p className="text-dark-600">{favoritePrograms.length}つを追加済み</p>
@@ -19,13 +19,13 @@ export function FavoriteSection() {
             </li>
           ))
         ) : (
-          <p className="w-full p-4 text-center text-dark-400">
+          <p className="w-full pt-4 text-center text-dark-400">
             まだお気に入りに何もありません
             <br />
             <Link to="/home/search" className="text-primary-300">
-              企画を探し
+              企画を探して
             </Link>
-            てみませんか？
+            みませんか？
           </p>
         )}
       </ul>
