@@ -88,7 +88,7 @@ export function ProgramDrawer({ program, children }: Props) {
           </div>
           <SendCommentButton program={program} />
           <Link
-            to={`/map?focusedLocation=${location}`}
+            to={`/map?focusedLocation=${program.location}`}
             onClick={() => setIsOpen(false)}
             className="flex w-full items-center justify-center gap-3 rounded-sm bg-primary-100 p-3"
           >
