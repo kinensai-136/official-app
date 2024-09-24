@@ -127,7 +127,7 @@ export async function fetchPrograms(): Promise<
     title: raw.title,
     organizer: raw.organizer,
     introduction: raw.introduction,
-    location: "入場ゲート付近",
+    location: raw.location,
     tags: raw.tags,
     productName: raw.productName,
   }))

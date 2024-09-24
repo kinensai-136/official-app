@@ -43,7 +43,6 @@ export type AuditoriumProgram = CommonProps & {
 
 export type BoothProgram = CommonProps & {
   category: "booth"
-  location: "入場ゲート付近"
   productName: string
 }
 

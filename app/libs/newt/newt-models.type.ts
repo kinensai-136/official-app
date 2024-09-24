@@ -38,6 +38,7 @@ export type NewtBoothProgram = Content & {
   organizer: string
   introduction: string
   tags: string[]
+  location: string
   productName: string
 }
 
