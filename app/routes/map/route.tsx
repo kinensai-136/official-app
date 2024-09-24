@@ -9,10 +9,12 @@ import { useThrottle } from "@uidotdev/usehooks"
 
 import { HeaderBar } from "~/components/layout/header-bar/header-bar"
 import { HeaderBarTitle } from "~/components/layout/header-bar/header-bar-title"
+import { BoothButton } from "~/routes/map/booth-button"
 import Map1F from "~/routes/map/map-1f"
 import Map2F from "~/routes/map/map-2f"
 import Map3F from "~/routes/map/map-3f"
 import Map45F from "~/routes/map/map-45f"
+import MapBooth from "~/routes/map/map-booth"
 import { SelectFloorsButton } from "~/routes/map/select-floors-button"
 
 export default function Page() {
@@ -42,6 +44,7 @@ export default function Page() {
         <HeaderBar>
           <div className="flex justify-between">
             <HeaderBarTitle>マップ</HeaderBarTitle>
+            <BoothButton />
           </div>
         </HeaderBar>
       </header>
@@ -55,11 +58,7 @@ export default function Page() {
             <Map3F />
             <Map2F />
             <Map1F />
-            <div className="flex h-dvh w-dvw items-center justify-center bg-dark-200">
-              <p className="text-sm text-white">
-                今後のアップデートで利用可能になります
-              </p>
-            </div>
+            <MapBooth />
           </TransformComponent>
         </TransformWrapper>
       </main>
