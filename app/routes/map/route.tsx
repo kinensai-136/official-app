@@ -13,6 +13,7 @@ import Map1F from "~/routes/map/map-1f"
 import Map2F from "~/routes/map/map-2f"
 import Map3F from "~/routes/map/map-3f"
 import Map45F from "~/routes/map/map-45f"
+import MapBooth from "~/routes/map/map-booth"
 import { SelectFloorsButton } from "~/routes/map/select-floors-button"
 
 export default function Page() {
@@ -55,11 +56,7 @@ export default function Page() {
             <Map3F />
             <Map2F />
             <Map1F />
-            <div className="flex h-dvh w-dvw items-center justify-center bg-dark-200">
-              <p className="text-sm text-white">
-                今後のアップデートで利用可能になります
-              </p>
-            </div>
+            <MapBooth />
           </TransformComponent>
         </TransformWrapper>
       </main>
