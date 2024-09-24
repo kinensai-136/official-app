@@ -19,7 +19,7 @@ export function FavoriteSection() {
             </li>
           ))
         ) : (
-          <p className="w-full pt-4 text-center text-dark-400">
+          <p className="w-full pb-2 pt-4 text-center text-dark-400">
             まだお気に入りに何もありません
             <br />
             <Link to="/home/search" className="text-primary-300">
