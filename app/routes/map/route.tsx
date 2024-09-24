@@ -9,6 +9,7 @@ import { useThrottle } from "@uidotdev/usehooks"
 
 import { HeaderBar } from "~/components/layout/header-bar/header-bar"
 import { HeaderBarTitle } from "~/components/layout/header-bar/header-bar-title"
+import { BoothButton } from "~/routes/map/booth-button"
 import Map1F from "~/routes/map/map-1f"
 import Map2F from "~/routes/map/map-2f"
 import Map3F from "~/routes/map/map-3f"
@@ -43,6 +44,7 @@ export default function Page() {
         <HeaderBar>
           <div className="flex justify-between">
             <HeaderBarTitle>マップ</HeaderBarTitle>
+            <BoothButton />
           </div>
         </HeaderBar>
       </header>
