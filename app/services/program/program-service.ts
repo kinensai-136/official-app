@@ -129,7 +129,7 @@ export async function fetchPrograms(): Promise<
     introduction: raw.introduction,
     location: "入場ゲート付近",
     tags: raw.tags,
-    price: raw.price,
+    productName: raw.productName,
   }))
   const classroomPrograms = rawClassroomPrograms.items.map<ClassroomProgram>(
     (raw) => ({

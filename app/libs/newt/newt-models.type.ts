@@ -38,7 +38,7 @@ export type NewtBoothProgram = Content & {
   organizer: string
   introduction: string
   tags: string[]
-  price: number
+  productName: string
 }
 
 export type NewtClassroomProgram = Content & {
