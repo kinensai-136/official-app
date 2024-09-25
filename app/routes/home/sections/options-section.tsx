@@ -1,5 +1,6 @@
 import { Browser } from "@capacitor/browser"
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid"
+import { Link } from "@remix-run/react"
 
 export function OptionsSection() {
   return (
@@ -9,6 +10,7 @@ export function OptionsSection() {
         <OfficialHPButton />
         <OfficialTwitterXButton />
         <OfficialInstagramButton />
+        <StudentsOnlyButton />
       </div>
     </section>
   )
@@ -51,5 +53,16 @@ function OfficialInstagramButton() {
       Instagram
       <ArrowTopRightOnSquareIcon className="size-5 text-dark-400" />
     </button>
+  )
+}
+
+function StudentsOnlyButton() {
+  return (
+    <Link
+      to="/home/students-only"
+      className="rounded-[0.8rem] bg-dark-200 px-5 py-2.5 text-center text-dark-600"
+    >
+      生徒限定
+    </Link>
   )
 }
