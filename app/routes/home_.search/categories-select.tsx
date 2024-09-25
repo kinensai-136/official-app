@@ -16,11 +16,13 @@ const allCategories: ProgramCategory[] = [
   "auditorium",
   "stage",
   "applicant",
+  "booth",
 ]
 
 const categoriesMap = {
   applicant: "有志企画",
   auditorium: "講堂企画",
+  booth: "模擬店企画",
   classroom: "クラス企画",
   stage: "ステージ企画",
 } as const satisfies Record<ProgramCategory, string>
