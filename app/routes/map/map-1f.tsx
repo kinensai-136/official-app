@@ -6920,6 +6920,11 @@ export default function Map1F() {
                   d="M502.956 202.971C502.721 202.814 502.653 202.593 502.715 202.335C502.79 202.018 503.116 201.843 503.413 201.936C503.655 202.012 503.797 202.175 503.827 202.433C503.863 202.73 503.661 202.987 503.373 203.043C503.224 203.072 503.09 203.048 502.956 202.971Z"
                   fill="#00AF6B"
                 />
+                <path
+                  id="H_SCHOOLYARD"
+                  d="M163 499.5H0V728H163V499.5Z"
+                  fill="#353535"
+                />
               </g>
             </g>
             <g id="Locations">
@@ -7110,6 +7115,14 @@ export default function Map1F() {
                 <path
                   id="PILOTIS_UNDER_HONKAN"
                   d="M453.5 705V641.5H425.16V651.5H397V705L453.5 705Z"
+                  fill="#ACACAC"
+                  fillOpacity="0.35"
+                />
+              </LocationWrapper>
+              <LocationWrapper location="高校グラウンド">
+                <path
+                  id="H_SCHOOLYARD_2"
+                  d="M163 499.5H0V728H163V499.5Z"
                   fill="#ACACAC"
                   fillOpacity="0.35"
                 />
