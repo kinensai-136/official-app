@@ -29,13 +29,13 @@ export default function Page() {
       </header>
       <main className="space-y-3 px-5">
         {validNotices.length > 0 ? (
-          splitNotices(validNotices).map((splittedNotices) => (
+          splitNotices(validNotices).map((splittedNotices, index) => (
             <section key={splittedNotices[0]._id} className="space-y-2">
               <DateDivider date={splittedNotices[0].createdAt} />
-              {splittedNotices.map((notice, index) => (
+              {splittedNotices.map((notice, index2) => (
                 <NoticeCard
                   key={notice._id}
-                  isEvenIndex={index % 2 === 0}
+                  isDefaultOpen={index === 0 && index2 === 0}
                   notice={notice}
                 />
               ))}

@@ -1,7 +1,13 @@
 import { ReactNode } from "react"
 
 import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react"
+import {
   BellIcon,
+  ChevronDownIcon,
   ClockIcon,
   MegaphoneIcon,
   SparklesIcon,
@@ -18,44 +24,51 @@ const iconMap: { [K in string]: ReactNode } = {
 }
 
 type Props = {
-  isEvenIndex: boolean
+  isDefaultOpen: boolean
   notice: Notice
 }
 
-export function NoticeCard({ isEvenIndex, notice }: Props) {
+export function NoticeCard({ isDefaultOpen, notice }: Props) {
   return (
-    <div
-      className={clsx(
-        "relative flex gap-4 rounded-lg bg-dark-200 p-4",
-        notice.isAlreadyRead && "opacity-80"
-      )}
-    >
-      <div
+    <Disclosure defaultOpen={isDefaultOpen}>
+      <DisclosureButton
         className={clsx(
-          "flex flex-col items-center justify-center gap-1 rounded-full p-1.5",
-          isEvenIndex
-            ? notice.isAlreadyRead
-              ? "bg-dark-300 text-primary-400"
-              : "bg-primary-100 text-white"
-            : notice.isAlreadyRead
-              ? "bg-dark-300 text-primary-600"
-              : "bg-primary-200 text-white"
+          "group relative flex w-full items-stretch gap-3 rounded bg-dark-200 p-4",
+          notice.isAlreadyRead && "opacity-80"
         )}
       >
-        <div className="size-7 p-px">
-          {iconMap[notice.category] ?? <BellIcon />}
+        <div
+          className={clsx(
+            "flex flex-col items-center justify-center gap-1 rounded p-1.5",
+            notice.isAlreadyRead
+              ? "bg-dark-300 text-primary-400"
+              : "bg-primary-100 text-white"
+          )}
+        >
+          <div className="size-7 p-px">
+            {iconMap[notice.category] ?? <BellIcon />}
+          </div>
+          {!notice.isAlreadyRead && (
+            <p className="hidden whitespace-nowrap text-xs font-semibold group-data-[open]:inline">
+              新着
+            </p>
+          )}
         </div>
-        {!notice.isAlreadyRead && (
-          <p className="whitespace-nowrap text-xs font-semibold ">新着</p>
-        )}
-      </div>
-      <div className="space-y-1 text-white">
-        <h1 className="text-lg font-bold">{notice.title}</h1>
-        <p className="text-sm">{notice.content}</p>
-        <p className="text-sm text-dark-500">
-          {dayjs(notice.createdAt).format("HH時mm分")}
-        </p>
-      </div>
-    </div>
+        <div className="w-full space-y-1 text-white">
+          <div className="flex items-center justify-between pr-2">
+            <h1 className="text-lg font-bold">{notice.title}</h1>
+            <ChevronDownIcon className="size-5 text-dark-500 group-data-[open]:rotate-180" />
+          </div>
+          <DisclosurePanel className="text-left text-sm">
+            {notice.content}
+          </DisclosurePanel>
+          <div className="flex justify-between pr-1 text-sm text-dark-500">
+            <p>{dayjs(notice.createdAt).format("HH時mm分")}</p>
+            <p className="group-data-[open]:hidden">タップして拡大</p>
+            <p className="hidden group-data-[open]:inline">表示を少なくする</p>
+          </div>
+        </div>
+      </DisclosureButton>
+    </Disclosure>
   )
 }
