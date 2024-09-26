@@ -25,7 +25,7 @@ export default function Page() {
     <>
       <header className="sticky top-0 z-30">
         <HeaderBar>
-          <HeaderBarTitle>生徒限定</HeaderBarTitle>
+          <HeaderBarTitle>高校生徒限定</HeaderBarTitle>
         </HeaderBar>
       </header>
       <main className="space-y-5 px-5">

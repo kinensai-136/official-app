@@ -62,7 +62,7 @@ function StudentsOnlyButton() {
       to="/home/students-only"
       className="rounded-[0.8rem] bg-dark-200 px-5 py-2.5 text-center text-dark-600"
     >
-      生徒限定
+      高校生徒限定
     </Link>
   )
 }
