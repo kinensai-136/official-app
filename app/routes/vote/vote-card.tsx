@@ -59,7 +59,7 @@ export function VoteCard({ program }: Props) {
       <div className="flex gap-2">
         <p className="text-sm text-dark-600">{program.organizer}</p>
         {isVoted && (
-          <p className="rounded-full bg-dark-300 px-2.5 text-sm font-medium text-primary-500">
+          <p className="rounded-full bg-primary-100 px-2.5 text-sm font-medium text-white">
             投票中
           </p>
         )}
@@ -70,7 +70,7 @@ export function VoteCard({ program }: Props) {
           </div>
         )}
       </div>
-      <h1 className="truncate text-lg font-semibold text-white">
+      <h1 className="mt-0.5 truncate text-lg font-semibold text-white">
         {program.title}
       </h1>
     </button>

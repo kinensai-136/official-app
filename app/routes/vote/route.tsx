@@ -45,6 +45,11 @@ export default function Page() {
             {votedClassroomProgram && (
               <VoteCard program={votedClassroomProgram} />
             )}
+            <div className="flex justify-center">
+              <p className="rounded-full bg-dark-200 px-4 py-1.5 text-sm text-primary-500">
+                カードをタップで投票できます
+              </p>
+            </div>
             <ul className="space-y-2">
               {programList.map((program) => (
                 <li key={program._id}>
@@ -62,6 +67,11 @@ export default function Page() {
               {votedStagePerformancePrograms.map((program) => (
                 <VoteCard key={program._id} program={program} />
               ))}
+            </div>
+            <div className="flex justify-center">
+              <p className="rounded-full bg-dark-200 px-4 py-1.5 text-sm text-primary-500">
+                カードをタップで投票できます
+              </p>
             </div>
             <ul className="space-y-2">
               {programList.map((program) => (
