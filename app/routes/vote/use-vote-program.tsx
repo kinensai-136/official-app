@@ -24,7 +24,11 @@ export function useVoteProgram(): Props {
     if (mode === "classroom") {
       setProgramList(
         search(programs.classroom, text)
-          .filter((program) => !isVotedClassroomProgram(program))
+          .filter(
+            (program) =>
+              !isVotedClassroomProgram(program) &&
+              program.organizer.includes("高校")
+          )
           .sort(() => Math.random() - 0.5)
           .sort((a, b) =>
             !isFavoriteProgram(a) && isFavoriteProgram(b) ? 1 : -1

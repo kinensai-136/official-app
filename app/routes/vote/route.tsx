@@ -23,7 +23,7 @@ export default function Page() {
           <div className="space-y-4">
             <HeaderBarTitle>人気投票</HeaderBarTitle>
             <TabList className="grid grid-cols-2 rounded-full bg-white/5 p-0.5">
-              {["クラス企画", "パフォーマンス大会"].map((name) => (
+              {["高校クラス企画", "パフォーマンス大会"].map((name) => (
                 <Tab
                   key={name}
                   className="rounded-full py-1 text-dark-400 focus:outline-none data-[selected]:bg-primary-100 data-[selected]:font-medium data-[selected]:text-white"
@@ -45,6 +45,11 @@ export default function Page() {
             {votedClassroomProgram && (
               <VoteCard program={votedClassroomProgram} />
             )}
+            <div className="flex justify-center">
+              <p className="rounded-full bg-dark-200 px-4 py-1.5 text-sm text-primary-500">
+                カードをタップで投票できます
+              </p>
+            </div>
             <ul className="space-y-2">
               {programList.map((program) => (
                 <li key={program._id}>
@@ -62,6 +67,11 @@ export default function Page() {
               {votedStagePerformancePrograms.map((program) => (
                 <VoteCard key={program._id} program={program} />
               ))}
+            </div>
+            <div className="flex justify-center">
+              <p className="rounded-full bg-dark-200 px-4 py-1.5 text-sm text-primary-500">
+                カードをタップで投票できます
+              </p>
             </div>
             <ul className="space-y-2">
               {programList.map((program) => (
