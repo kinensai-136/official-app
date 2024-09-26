@@ -39,7 +39,7 @@ export default function Page() {
         ) : (
           <div className="space-y-5">
             <InformationCard>
-              木曜日に生徒の皆さんに配布したチラシにある、合言葉を入力してください
+              高校生のGoogle Classroomにて発表している合言葉を入力してください
             </InformationCard>
             <input
               onChange={handleChange}
