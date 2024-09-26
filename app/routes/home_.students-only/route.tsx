@@ -25,7 +25,7 @@ export default function Page() {
     <>
       <header className="sticky top-0 z-30">
         <HeaderBar>
-          <HeaderBarTitle>生徒限定</HeaderBarTitle>
+          <HeaderBarTitle>高校生徒限定</HeaderBarTitle>
         </HeaderBar>
       </header>
       <main className="space-y-5 px-5">
@@ -39,7 +39,7 @@ export default function Page() {
         ) : (
           <div className="space-y-5">
             <InformationCard>
-              木曜日に生徒の皆さんに配布したチラシにある、合言葉を入力してください
+              高校生のGoogle Classroomにて発表している合言葉を入力してください
             </InformationCard>
             <input
               onChange={handleChange}

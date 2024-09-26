@@ -23,7 +23,7 @@ export default function Page() {
           <div className="space-y-4">
             <HeaderBarTitle>人気投票</HeaderBarTitle>
             <TabList className="grid grid-cols-2 rounded-full bg-white/5 p-0.5">
-              {["クラス企画", "パフォーマンス大会"].map((name) => (
+              {["高校クラス企画", "パフォーマンス大会"].map((name) => (
                 <Tab
                   key={name}
                   className="rounded-full py-1 text-dark-400 focus:outline-none data-[selected]:bg-primary-100 data-[selected]:font-medium data-[selected]:text-white"
