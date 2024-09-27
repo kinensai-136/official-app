@@ -66,16 +66,21 @@ export function ProgramDrawer({ program, children }: Props) {
                   timeTable1st={program.timeTable1st}
                   timeTable2nd={program.timeTable2nd}
                 />
-                <Information>
-                  一回先の公演までの整理券を、教室前にて配布しております。直前に空きがあれば立ち見も可能です。
-                </Information>
+                {program.category === "classroom" &&
+                  program.organizer.includes("高校") && (
+                    <Information>
+                      一回先の公演までの整理券を、教室前にて配布しております。直前に空きがあれば立ち見も可能です。
+                    </Information>
+                  )}
               </>
             )}
-            {!hasTimeTable && program.category === "classroom" && (
-              <Information>
-                15分間隔で常に整理券を配布しております。混雑時にはお並びをお断りさせていただく場合がございます。
-              </Information>
-            )}
+            {!hasTimeTable &&
+              program.category === "classroom" &&
+              program.organizer.includes("高校") && (
+                <Information>
+                  毎時15分から、教室前にて整理券を配布しております。時間帯ごとに在庫がございます。
+                </Information>
+              )}
             {hasSchedule && (
               <Schedule
                 schedule1st={program.schedule1st}
