@@ -57,7 +57,7 @@ export function NoticeCard({ isDefaultOpen, notice }: Props) {
         <div className="w-full space-y-1.5 text-white">
           <div className="flex items-center justify-between gap-3 pr-2">
             <h1 className="text-left text-lg font-bold">{notice.title}</h1>
-            <ChevronDownIcon className="size-5 text-dark-500 group-data-[open]:rotate-180" />
+            <ChevronDownIcon className="size-5 shrink-0 text-dark-500 group-data-[open]:rotate-180" />
           </div>
           <DisclosurePanel className="text-left text-sm">
             {notice.content}
