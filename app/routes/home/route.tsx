@@ -3,6 +3,7 @@ import { HeaderBarTitle } from "~/components/layout/header-bar/header-bar-title"
 import { SearchButton } from "~/routes/home/search-button"
 import { FavoriteSection } from "~/routes/home/sections/favorite-section"
 import { OptionsSection } from "~/routes/home/sections/options-section"
+import { PamphletSection } from "~/routes/home/sections/pamphlet-section"
 import { RecommendSection } from "~/routes/home/sections/recommend-section"
 
 export default function Page() {
@@ -17,6 +18,7 @@ export default function Page() {
         </HeaderBar>
       </header>
       <main className="px-5">
+        <PamphletSection />
         <RecommendSection />
         <FavoriteSection />
         <OptionsSection />
