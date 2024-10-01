@@ -15,7 +15,7 @@ type Props = {
 
 export function PeriodCard({ startTime, endTime, program }: Props) {
   dayjs.extend(isBetween)
-  const isEnded = dayjs().isAfter(endTime)
+  //const isEnded = dayjs().isAfter(endTime)
   const isNow = dayjs().isBetween(startTime, endTime)
   const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
@@ -24,7 +24,7 @@ export function PeriodCard({ startTime, endTime, program }: Props) {
     }
   }, [isNow])
   return (
-    <div ref={ref} className={clsx("flex gap-1", isEnded && "opacity-40")}>
+    <div ref={ref} className={clsx("flex gap-1" /*, isEnded && "opacity-40"*/)}>
       <div className="flex flex-col items-center gap-5 px-3">
         <p className="relative bottom-3.5 text-lg/none text-dark-500">
           {dayjs(startTime).format("HH:mm")}

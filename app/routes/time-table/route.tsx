@@ -30,7 +30,7 @@ export default function Page() {
               {Object.keys(timeTables).map((name) => (
                 <Tab
                   key={name}
-                  className="rounded-full py-1 text-dark-400 focus:outline-none data-[selected]:bg-primary-100 data-[selected]:text-white"
+                  className="rounded-full py-1 text-dark-400 focus:outline-none data-[selected]:bg-primary-100 data-[selected]:font-medium data-[selected]:text-white"
                 >
                   {name}
                 </Tab>
