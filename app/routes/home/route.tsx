@@ -12,7 +12,7 @@ export default function Page() {
       <header className="sticky top-0 z-30">
         <HeaderBar>
           <div className="space-y-5">
-            <HeaderBarTitle>記念祭へようこそ！</HeaderBarTitle>
+            <HeaderBarTitle>本当にありがとう！</HeaderBarTitle>
             <SearchButton />
           </div>
         </HeaderBar>
