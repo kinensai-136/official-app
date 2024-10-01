@@ -11,7 +11,6 @@ import { Schedule } from "~/components/program/drawer-parts/schedule"
 import { Tags } from "~/components/program/drawer-parts/tags"
 import { TimeTable } from "~/components/program/drawer-parts/time-table"
 import { FavoriteButton } from "~/components/program/favorite-button"
-import { SendCommentButton } from "~/components/program/send-comment-button"
 import { Program, ProgramCategory } from "~/services/program/program.type"
 import { useTicket } from "~/services/ticket/ticket-hook"
 
@@ -91,7 +90,6 @@ export function ProgramDrawer({ program, children }: Props) {
               {program.introduction}
             </Drawer.Description>
           </div>
-          <SendCommentButton program={program} />
           <Link
             to={`/map?focusedLocation=${program.location}`}
             onClick={() => setIsOpen(false)}

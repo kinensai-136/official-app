@@ -11,20 +11,12 @@ type Props = {
 
 export function VoteCard({ program }: Props) {
   const { isFavoriteProgram } = useFavorite()
-  const {
-    votedStagePerformancePrograms,
-    isVotedClassroomProgram,
-    isVotedStagePerformanceProgram,
-    voteClassroomProgram,
-    voteStagePerformanceProgram,
-    unvoteClassroomProgram,
-    unvoteStagePerformanceProgram,
-  } = useVote()
+  const { isVotedClassroomProgram, isVotedStagePerformanceProgram } = useVote()
   const isFavorite = isFavoriteProgram(program)
   const isVoted =
     isVotedClassroomProgram(program) || isVotedStagePerformanceProgram(program)
   const handleClick = async () => {
-    if (program.category === "classroom") {
+    /*if (program.category === "classroom") {
       if (isVoted) {
         await unvoteClassroomProgram()
       } else {
@@ -45,7 +37,7 @@ export function VoteCard({ program }: Props) {
           await voteStagePerformanceProgram(program)
         }
       }
-    }
+    }*/
   }
   return (
     <button
@@ -60,7 +52,7 @@ export function VoteCard({ program }: Props) {
         <p className="text-sm text-dark-600">{program.organizer}</p>
         {isVoted && (
           <p className="rounded-full bg-primary-100 px-2.5 text-sm font-medium text-white">
-            投票中
+            投票済
           </p>
         )}
         {isFavorite && (

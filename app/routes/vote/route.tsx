@@ -3,14 +3,13 @@ import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react"
 import { HeaderBar } from "~/components/layout/header-bar/header-bar"
 import { HeaderBarTitle } from "~/components/layout/header-bar/header-bar-title"
 import { InformationCard } from "~/routes/vote/information-card"
-import { SearchInput } from "~/routes/vote/search-input"
 import { useVoteProgram } from "~/routes/vote/use-vote-program"
 import { VoteCard } from "~/routes/vote/vote-card"
 import { useVote } from "~/services/vote/vote-hook"
 
 export default function Page() {
   const { votedClassroomProgram, votedStagePerformancePrograms } = useVote()
-  const { setText, setMode, programList } = useVoteProgram()
+  const { setMode, programList } = useVoteProgram()
   return (
     <TabGroup
       onChange={(index) => {
@@ -39,17 +38,11 @@ export default function Page() {
         <TabPanels>
           <TabPanel className="space-y-4">
             <InformationCard>
-              クラス企画では、2日間で1票だけ好きな企画に投票できます。結果は後日当アプリにて発表される予定です。
+              クラス企画の投票は終了いたしました。結果などについて、今週末までに続報をお届けする予定です。
             </InformationCard>
-            <SearchInput onChange={setText} />
             {votedClassroomProgram && (
               <VoteCard program={votedClassroomProgram} />
             )}
-            <div className="flex justify-center">
-              <p className="rounded-full bg-dark-200 px-4 py-1.5 text-sm text-primary-500">
-                カードをタップで投票できます
-              </p>
-            </div>
             <ul className="space-y-2">
               {programList.map((program) => (
                 <li key={program._id}>
@@ -60,18 +53,12 @@ export default function Page() {
           </TabPanel>
           <TabPanel className="space-y-4">
             <InformationCard>
-              ステージ企画パフォーマンス大会では、3票まで投票できます。結果は当日ステージ上で発表される予定です。
+              ステージ企画パフォーマンス大会の投票は終了いたしました。結果などについて、今週末までに続報をお届けする予定です。
             </InformationCard>
-            <SearchInput onChange={setText} />
             <div className="space-y-2.5">
               {votedStagePerformancePrograms.map((program) => (
                 <VoteCard key={program._id} program={program} />
               ))}
-            </div>
-            <div className="flex justify-center">
-              <p className="rounded-full bg-dark-200 px-4 py-1.5 text-sm text-primary-500">
-                カードをタップで投票できます
-              </p>
             </div>
             <ul className="space-y-2">
               {programList.map((program) => (
