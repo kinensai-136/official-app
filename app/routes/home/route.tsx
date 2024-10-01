@@ -3,8 +3,8 @@ import { HeaderBarTitle } from "~/components/layout/header-bar/header-bar-title"
 import { SearchButton } from "~/routes/home/search-button"
 import { FavoriteSection } from "~/routes/home/sections/favorite-section"
 import { OptionsSection } from "~/routes/home/sections/options-section"
-import { PamphletSection } from "~/routes/home/sections/pamphlet-section"
 import { RecommendSection } from "~/routes/home/sections/recommend-section"
+import { SurveySection } from "~/routes/home/sections/survey-section"
 
 export default function Page() {
   return (
@@ -18,7 +18,7 @@ export default function Page() {
         </HeaderBar>
       </header>
       <main className="px-5">
-        <PamphletSection />
+        <SurveySection />
         <RecommendSection />
         <FavoriteSection />
         <OptionsSection />
