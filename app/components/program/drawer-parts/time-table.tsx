@@ -74,26 +74,26 @@ type PeriodCardProps = {
 
 function PeriodCard({
   period: { startTime, endTime },
-  status,
+  //status,
 }: PeriodCardProps) {
   dayjs.extend(isBetween)
-  const now = dayjs()
+  //const now = dayjs()
   return (
     <div className="flex flex-col items-center gap-1.5">
       <div className="flex flex-col items-end">
         <p
           className={clsx(
-            "text-xl/tight",
-            now.isBetween(startTime, endTime) && "font-medium text-green",
-            now.isAfter(endTime) && "text-dark-400"
+            "text-xl/tight"
+            /*now.isBetween(startTime, endTime) && "font-medium text-green",
+            now.isAfter(endTime) && "text-dark-400"*/
           )}
         >
           {dayjs(startTime).format("HH:mm")}
         </p>
         <p
           className={clsx(
-            "whitespace-nowrap text-lg leading-none",
-            now.isAfter(endTime) ? "text-dark-400" : "text-dark-600"
+            "whitespace-nowrap text-lg leading-none"
+            /*now.isAfter(endTime) ? "text-dark-400" : "text-dark-600"*/
           )}
         >
           <span className="mr-0.5">-</span>
@@ -101,7 +101,8 @@ function PeriodCard({
         </p>
       </div>
       {
-        <p
+        <p className="whitespace-nowrap text-sm text-dark-400">- - -</p>
+        /*<p
           className={clsx(
             "whitespace-nowrap text-sm",
             !status && "text-dark-400",
@@ -116,7 +117,7 @@ function PeriodCard({
           {status === "soon" && "配布予定"}
           {status === "now" && "配布中"}
           {status === "ended" && "配布終了"}
-        </p>
+        </p>*/
       }
     </div>
   )
